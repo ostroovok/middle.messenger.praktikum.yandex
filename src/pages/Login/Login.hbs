@@ -1,0 +1,14 @@
+<div class="login-page">
+    {{#> Layout}}
+        {{#> AuthForm className="login-page__form"}}
+            <div>
+                {{> Input placeholder="example@yandex.ru" fieldName="login" labelText="Логин" }}
+                {{> Input fieldName="password" labelText="Пароль"}}
+            </div>
+            <div class="login-page__action-buttons">
+                {{> Button label="Войти" type="primary" navTo="chats"}}
+                {{> Button label="Нет аккаунта?" type="link" navTo="signUp"}}
+            </div>
+        {{/AuthForm}}
+    {{/Layout}}
+</div>

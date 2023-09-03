@@ -1,0 +1,35 @@
+@import "/src/assets/styles/colors.scss";
+@import "/src/assets/styles/common.scss";
+@import "/src/assets/styles/mixins.scss";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  border: none;
+  height: 37px;
+  width: 100%;
+  color: $main-blue;
+  background: $white;
+
+  @include font;
+
+  &__primary {
+    color: $white;
+    background: $main-blue;
+
+    &:hover {
+      cursor: pointer;
+      background: $dark-blue !important;
+    }
+  }
+
+  &__link {
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

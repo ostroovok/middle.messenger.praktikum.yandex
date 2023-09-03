@@ -1,0 +1,22 @@
+.auth-form {
+    width: 340px;
+    height: 450px;
+    border-radius: 12px;
+    box-shadow: 0 0 6px 0 #00000024;
+    margin: auto;
+    margin-top: 10%;
+    padding: 50px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 30px;
+    }
+}
