@@ -1,0 +1,47 @@
+@import "/src/assets/styles/colors.scss";
+@import "/src/assets/styles/common.scss";
+@import "/src/assets/styles/mixins.scss";
+
+.contact-card {
+  border-bottom: 1px solid $grey;
+  display: flex;
+  gap: 10px;
+  &__image-container {
+    border-radius: 50%;
+    background-color: $input-background-grey;
+  }
+
+  &__image {
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+  }
+
+  &__content-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__main-data {
+
+  }
+
+  &__name {
+  }
+
+  &__message-preview {
+    @include font($text-second, 12px, 500, "Inter");
+    word-break: break-all;
+  }
+
+  &__meta-data {
+  }
+
+  &__time {
+  }
+
+  &__unread-messages {
+  }
+}

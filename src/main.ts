@@ -1,6 +1,7 @@
 import Handlebars from "handlebars";
 import * as Components from "./components";
 import * as Pages from "./pages";
+import "./global.scss";
 
 const pages = {
   login: [Pages.LoginPage],
@@ -16,7 +17,7 @@ Object.entries(Components).forEach(([name, component]) => {
 
 function navigate(page: string) {
   //@ts-ignore
-  const [source, context] = pages[page];
+  const [source, context] = pages[page] ?? Pages.Error;
   const container = document.getElementById("app")!;
   container.innerHTML = Handlebars.compile(source)(context);
 }

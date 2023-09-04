@@ -1,6 +1,8 @@
 $font-size-normal: 14px;
 $font-weight-normal: 500;
 
+$common-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
 $space-unit: 8px;
 $spacing-xxs: $space-unit*0.25;
 $spacing-xs: $space-unit*0.5;

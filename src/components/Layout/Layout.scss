@@ -1,8 +1,18 @@
+@import "/src/assets/styles/colors.scss";
+@import "/src/assets/styles/common.scss";
+@import "/src/assets/styles/mixins.scss";
+
 .layout {
     display: flex;
     flex: auto;
-    flex-direction: column;
     min-height: 0;
     box-sizing: border-box;
     justify-content: center;
+    flex-direction: column;
+
+    @include font($text-dark, 16px, 600);
+
+    &__row {
+        flex-direction: row;
+    }
 }
