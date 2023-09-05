@@ -30,4 +30,12 @@
     padding-bottom: 0px;
     text-align: right;
   }
+
+  &__input:focus-visible {
+    outline: none;
+  }
+
+  &__input:focus-visible::placeholder {
+    color: transparent;
+  }
 }

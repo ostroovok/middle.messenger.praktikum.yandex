@@ -1,6 +1,7 @@
 <button class="avatar {{className}}" type="button">
     <img src={{imageSrc}} />
-    <div class="avatar__overlay">
-        <span class="avatar__label">Поменять аватар</span>
-    </div>
+    <label for="{{name}}" class="avatar__overlay">
+        <span class="avatar__label">{{label}}</span>
+        <input name="{{name}}" type="file" class="avatar__input"/>
+    </label>
 </button>

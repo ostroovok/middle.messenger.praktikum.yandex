@@ -1,6 +1,6 @@
-<form class="form {{overlayClassName}}">
-    <div class="form__title">{{title}}</div>
-    <div class="{{className}}">
+<div class="{{overlayClassName}}">
+    {{#if title}}<div class="form__title">{{title}}</div>{{/if}}
+    <form class="{{className}}">
         {{> @partial-block }}
-    </div>
-</form>
+    </form>
+</div>

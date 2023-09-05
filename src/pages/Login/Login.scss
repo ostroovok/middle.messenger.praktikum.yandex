@@ -1,4 +1,17 @@
 .login-page {
+  &__form-overlay {
+    border-radius: 12px;
+    width: 340px;
+    box-shadow: 0 0 6px 0 #00000024;
+    margin: auto;
+    margin-top: 10%;
+    padding: 50px 30px 20px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
   &__form {
     display: flex;
     flex-direction: column;

@@ -5,7 +5,7 @@
     {{#> Layout direction="row"}}
       <div class="profile-page__container">
         <div class="profile-page__avatar">
-          {{> Avatar imageSrc="/src/assets/images/unknown-image.svg"}}
+          {{> Avatar imageSrc="/src/assets/images/unknown-image.svg" label="Поменять аватар" name="avatar"}}
           <div class="profile-page__display-name">Иван</div>
         </div>
         <div class="profile-page__fields">
@@ -17,7 +17,7 @@
             {{> EditableField name="phone" label="Телефон" type="text" value="+7 (909) 967 30 30" disabled="disabled"}}
         </div>
         <div class="profile-page__actions">
-            {{> Button label="Изменить данные" navTo="profile/edit" className="profile-page__action-button"}}
+            {{> Button label="Изменить данные" navTo="editProfile" className="profile-page__action-button"}}
             {{> Button label="Изменить пароль" navTo="password/edit" className="profile-page__action-button"}}
             {{> Button label="Выйти" navTo="login" className="profile-page__action-button profile-page__action-button__red"}}
         </div>

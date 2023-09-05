@@ -16,7 +16,6 @@
     .avatar__overlay {
       opacity: 0.5;
     }
-    cursor: pointer;
   }
 
   &__overlay {
@@ -37,5 +36,17 @@
 
   &__label {
     width: 50%;
+  }
+
+  &__input {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    height: 100%;
+    border-radius: 50%;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

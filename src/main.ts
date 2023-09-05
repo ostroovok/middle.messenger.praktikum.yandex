@@ -10,6 +10,7 @@ const pages = {
   notFound: [Pages.Error, { title: "404", subTitle: "Не туда попали" }],
   serverError: [Pages.Error, { title: "500", subTitle: "Мы уже фиксим" }],
   profile: [Pages.Profile],
+  editProfile: [Pages.EditProfilePage],
 };
 
 Object.entries(Components).forEach(([name, component]) => {
