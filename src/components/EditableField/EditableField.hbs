@@ -1,12 +1,12 @@
 <div class="editable-field">
-    <div class="editable-field__container">
+    <div class="editable-field__container {{overlayClassName}}">
     <label for="{{name}}" class="editable-field__label">{{label}}</label>
         <input 
             type={{type}}
-            class="editable-field__input"
+            class="editable-field__input {{className}}"
             name="{{name}}"
             value="{{value}}"
-            disabled={{disabled}}
+            {{#if disabled}}disabled={{disabled}}{{/if}}
         >
     </div>
 </div>

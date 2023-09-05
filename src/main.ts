@@ -7,7 +7,8 @@ const pages = {
   login: [Pages.LoginPage],
   signUp: [Pages.SignUp],
   chats: [Pages.Chats],
-  error: [Pages.Error],
+  notFound: [Pages.Error, { title: "404", subTitle: "Не туда попали" }],
+  serverError: [Pages.Error, { title: "500", subTitle: "Мы уже фиксим" }],
   profile: [Pages.Profile],
 };
 

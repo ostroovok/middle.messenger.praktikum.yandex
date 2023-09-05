@@ -1,5 +1,6 @@
 @import "/src/assets/styles/colors.scss";
 @import "/src/assets/styles/common.scss";
+@import "/src/assets/styles/mixins.scss";
 
 .chats-page {
   height: 100%;
@@ -13,16 +14,16 @@
   &__chats-list {
     background: $grey;
     width: 310px;
-    padding: 20px 10px;
+    padding: 5px 0px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
     border-right: 1px solid $grey-dark;
   }
 
   &__search-container {
     padding: 0;
     height: 32px;
+    padding: 0px 10px;
   }
 
   &__search {
@@ -35,7 +36,7 @@
     height: 32px;
     text-align: center;
     padding: 0;
-    background-position: 40% 50%;
+    background-position: 39% 50%;
     color: $text-second;
   }
 
@@ -50,5 +51,16 @@
     justify-content: flex-end;
     flex-direction: row;
     align-items: center;
+    padding: 0px 10px;
+  }
+
+  &__messages-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__plug {
+    @include font($text-second, 12px, 500, "Inter");
   }
 }

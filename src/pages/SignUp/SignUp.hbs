@@ -1,15 +1,19 @@
-<div> 
+<div class="sign-up">
     {{#> Layout}}
-        {{#> Header}}
-            <span>Header</span>
-        {{/Header}}
-        <div>Sign up page</div>
-        {{#> Footer}}
-            <span>Footer</span>
-        {{/Footer}}
+        {{#> Form className="sign-up__form" overlayClassName="sign-up__form-overlay" title="Регистрация"}}
+            <div>
+                {{> Input fieldname="email" labelText="Почта" type="email" overlayClassName=""}}
+                {{> Input fieldname="login" labelText="Логин" type="text" className=""}}
+                {{> Input fieldname="first_fieldname" labelText="Имя" type="text" className=""}}
+                {{> Input fieldname="second_fieldname" labelText="Фамилия" type="text" className=""}}
+                {{> Input fieldname="phone" labelText="Телефон" type="text" className=""}}
+                {{> Input fieldname="password" labelText="Пароль" type="text" className=""}}
+                {{> Input  labelText="Пароль (ещё раз)" type="text" className=""}}
+            </div>
+            <div class="sign-up__action-buttons">
+                {{> Button label="Зарегистрироваться" type="primary" navTo="chats" className=""}}
+                {{> Button label="Войти" type="link" navTo="login" className=""}}
+            </div>
+        {{/Form}}
     {{/Layout}}
-    {{> Button label="chats" type="link" navTo="chats"}}
-    {{> Button label="profile" type="link" navTo="profile"}}
-    {{> Button label="login" type="link" navTo="login"}}
-    {{> Button label="error" type="link" navTo="error"}}
 </div>

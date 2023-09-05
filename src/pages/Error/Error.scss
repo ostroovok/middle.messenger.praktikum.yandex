@@ -1,2 +1,24 @@
-.error {
+@import "/src/assets/styles/colors.scss";
+@import "/src/assets/styles/common.scss";
+@import "/src/assets/styles/mixins.scss";
+
+.error-page {
+  height: 100%;
+  &__layout {
+    height: 100%;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  &__title {
+    @include font($text-dark, 40px, 500);
+  }
+  &__subTitle {
+    @include font($text-dark, 20px, 500);
+    margin-bottom: 40px;
+  }
 }

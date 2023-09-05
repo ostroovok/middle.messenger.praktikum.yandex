@@ -1,8 +1,8 @@
-<div class="input {{overlayClassName}}">
-  <label class="input__container {{labelClassName}}">
+<div class="input">
+  <label for{{name}} class="input__container {{labelClassName}}">
     <div class="input__label">{{labelText}}</div>
     <input
-      class="input__element {{inputClassName}}"
+      class="input__element {{#if inputClassName}}{{inputClassName}}{{/if}}"
       placeholder="{{placeholder}}"
       name="{{fieldName}}"
       type="{{type}}"

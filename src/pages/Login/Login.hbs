@@ -1,6 +1,6 @@
 <div class="login-page">
     {{#> Layout}}
-        {{#> AuthForm className="login-page__form"}}
+        {{#> Form className="login-page__form" title="Вход"}}
             <div>
                 {{> Input placeholder="example@yandex.ru" fieldName="login" labelText="Логин" }}
                 {{> Input fieldName="password" labelText="Пароль"}}
@@ -9,6 +9,6 @@
                 {{> Button label="Войти" type="primary" navTo="chats" className=""}}
                 {{> Button label="Нет аккаунта?" type="link" navTo="signUp" className=""}}
             </div>
-        {{/AuthForm}}
+        {{/Form}}
     {{/Layout}}
 </div>

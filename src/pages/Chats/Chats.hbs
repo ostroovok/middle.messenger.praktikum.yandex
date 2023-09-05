@@ -8,7 +8,7 @@
                 </svg>
             </div>
             {{> Input placeholder="Поиск" overlayClassName="chats-page__search-container" inputClassName="chats-page__search"}}
-            <span>
+            {{#> ContactList className=""}}
                 {{> ContactCard 
                     avatarUrl="/src/assets/images/unknown-image.svg" 
                     contactName="Андрей" 
@@ -16,10 +16,33 @@
                     lastMessagetime="10:49" 
                     unreadMessages="2"
                 }}
-            </span>
+                {{> ContactCard 
+                    avatarUrl="/src/assets/images/unknown-image.svg" 
+                    contactName="Канал со спамом" 
+                    lastMessagePreview="Изображение" 
+                    lastMessagetime="02:33" 
+                    unreadMessages="10"
+                }}
+                {{> ContactCard 
+                    avatarUrl="/src/assets/images/unknown-image.svg" 
+                    contactName="Иван" 
+                    lastMessagePreview="..." 
+                    lastMessagetime="Пт" 
+                    unreadMessages=""
+                    sendByUser="true"
+                }}
+            {{/ContactList}}
         {{/Sider}}
-        {{#> Layout}}
-            <div>chat side</div>
+        {{#> Layout className="chats-page__messages-window"}}
+            <div class="chats-page__plug">
+                <span>
+                    Выберите чат чтобы отправить сообщение (в разработке)
+                </span>
+                <div>
+                    {{> Button label="Страница 404" type="link" navTo="notFound" className=""}}
+                    {{> Button label="Страница 5**" type="link" navTo="serverError" className=""}}
+                </div>
+            </div>
         {{/Layout}}
     {{/Layout}}
     
