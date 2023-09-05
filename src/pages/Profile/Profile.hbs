@@ -5,7 +5,7 @@
     {{#> Layout direction="row"}}
       <div class="profile-page__container">
         <div class="profile-page__avatar">
-          {{> Avatar imageSrc="/src/assets/images/unknown-image.svg" label="Поменять аватар" name="avatar"}}
+          {{> Avatar imageSrc="/src/assets/images/unknown-image.svg" label="Поменять аватар" name="avatar" className=""}}
           <div class="profile-page__display-name">Иван</div>
         </div>
         <div class="profile-page__fields">
@@ -18,7 +18,7 @@
         </div>
         <div class="profile-page__actions">
             {{> Button label="Изменить данные" navTo="editProfile" className="profile-page__action-button"}}
-            {{> Button label="Изменить пароль" navTo="password/edit" className="profile-page__action-button"}}
+            {{> Button label="Изменить пароль" navTo="changePassword" className="profile-page__action-button"}}
             {{> Button label="Выйти" navTo="login" className="profile-page__action-button profile-page__action-button__red"}}
         </div>
       </div>

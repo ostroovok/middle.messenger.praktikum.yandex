@@ -19,6 +19,7 @@
   &__primary {
     color: $white;
     background: $main-blue;
+    text-decoration: none !important;
 
     &:hover {
       cursor: pointer;

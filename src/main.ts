@@ -11,6 +11,7 @@ const pages = {
   serverError: [Pages.Error, { title: "500", subTitle: "Мы уже фиксим" }],
   profile: [Pages.Profile],
   editProfile: [Pages.EditProfilePage],
+  changePassword: [Pages.ChangePasswordPage],
 };
 
 Object.entries(Components).forEach(([name, component]) => {
