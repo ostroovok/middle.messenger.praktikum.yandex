@@ -6,7 +6,13 @@
        {{#> Form className="edit-profile-page__form-container"}}
         <div class="edit-profile-page__form-data">
           <div class="edit-profile-page__avatar">
-            {{> Avatar imageSrc="/src/assets/images/unknown-image.svg" label="Поменять аватар" name="avatar" className=""}}
+            {{> Avatar 
+                  imageSrc="/src/assets/images/unknown-image.svg" 
+                  label="Поменять аватар" 
+                  name="avatar" 
+                  className="" 
+                  disabled="true"
+            }}
           </div>
           <div class="edit-profile-page__fields">
             {{> EditableField name="email" label="Почта" type="email" value="pochta@yandex.ru" className=""}}

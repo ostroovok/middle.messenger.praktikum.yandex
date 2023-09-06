@@ -7,4 +7,4 @@ export { Avatar } from "./Avatar";
 export { ContactCard } from "./ContactCard";
 export { ContactList } from "./ContactList";
 
-export { Header, Footer, Sider } from "./Layout/components";
+export { Sider } from "./Layout/components";

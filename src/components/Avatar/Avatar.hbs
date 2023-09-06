@@ -1,7 +1,10 @@
 <button class="avatar {{className}}" type="button">
     <img src={{imageSrc}} />
-    <label for="{{name}}" class="avatar__overlay">
-        <span class="avatar__label">{{label}}</span>
-        <input name="{{name}}" type="file" class="avatar__input"/>
-    </label>
+    {{#if disabled}}
+    {{else}}
+        <label for="{{name}}" class="avatar__overlay">
+            <span class="avatar__label">{{label}}</span>
+            <input name="{{name}}" type="file" class="avatar__input"/>
+        </label>
+    {{/if}}
 </button>

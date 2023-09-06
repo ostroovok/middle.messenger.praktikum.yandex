@@ -61,6 +61,6 @@
   }
 
   &__plug {
-    @include font($text-second, 12px, 500, "Inter");
+    @include font(12px, $font-weight-normal, $text-second, "Inter");
   }
 }

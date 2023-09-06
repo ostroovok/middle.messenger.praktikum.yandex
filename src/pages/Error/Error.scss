@@ -15,10 +15,10 @@
     gap: 20px;
   }
   &__title {
-    @include font($text-dark, 40px, 500);
+    @include font(40px, $font-weight-normal, $text-dark);
   }
   &__subTitle {
-    @include font($text-dark, 20px, 500);
+    @include font(20px, $font-weight-normal, $text-dark);
     margin-bottom: 40px;
   }
 }

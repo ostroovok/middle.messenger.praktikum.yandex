@@ -10,7 +10,7 @@
     justify-content: center;
     flex-direction: column;
 
-    @include font($text-dark, 16px, 600);
+    @include font(16px, $font-weight-bold, $text-dark);
 
     &__row {
         flex-direction: row;
