@@ -4,7 +4,7 @@
 https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?type=design&node-id=0-1&mode=design&t=K2yF4ULfnR0RSR7f-0
 
 ### Проект в netlify
-
+https://cerulean-kleicha-704c2b.netlify.app
 
 ### Установка и запуск проекта
 — Установка стабильной версии:
