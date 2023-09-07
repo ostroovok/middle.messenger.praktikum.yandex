@@ -21,7 +21,7 @@ Object.entries(Components).forEach(([name, component]) => {
 function navigate(page: string) {
   //@ts-ignore
   const [source, context] = pages[page] ?? Pages.Error;
-  const container = document.getElementById("app")!;
+  const container = document.getElementById("root")!;
   container.innerHTML = Handlebars.compile(source)(context);
 }
 
