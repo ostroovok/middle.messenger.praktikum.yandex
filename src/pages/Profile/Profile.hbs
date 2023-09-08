@@ -1,0 +1,26 @@
+<div class="profile-page">
+    {{#> Sider className="profile-page__back-button"}}
+      {{> IconButton navTo="chats" imageSrc="/src/assets/images/arrow-blue.svg"}}
+    {{/Sider}}
+    {{#> Layout direction="row"}}
+      <div class="profile-page__container">
+        <div class="profile-page__avatar">
+          {{> Avatar imageSrc="/src/assets/images/unknown-image.svg" label="Поменять аватар" name="avatar" className=""}}
+          <div class="profile-page__display-name">Иван</div>
+        </div>
+        <div class="profile-page__fields">
+            {{> EditableField name="email" label="Почта" type="email" value="pochta@yandex.ru" disabled="disabled"}}
+            {{> EditableField name="login" label="Логин" type="text" value="ivanivanov" disabled="disabled"}}
+            {{> EditableField name="first_name" label="Имя" type="text" value="Иван" disabled="disabled"}}
+            {{> EditableField name="second_name" label="Фамилия" type="text" value="Иванов" disabled="disabled"}}
+            {{> EditableField name="display_name" label="Имя в чате" type="text" value="Иван" disabled="disabled"}}
+            {{> EditableField name="phone" label="Телефон" type="text" value="+7 (909) 967 30 30" disabled="disabled"}}
+        </div>
+        <div class="profile-page__actions">
+            {{> Button label="Изменить данные" navTo="editProfile" className="profile-page__action-button"}}
+            {{> Button label="Изменить пароль" navTo="changePassword" className="profile-page__action-button"}}
+            {{> Button label="Выйти" navTo="login" className="profile-page__action-button profile-page__action-button__red"}}
+        </div>
+      </div>
+    {{/Layout}}
+</div>

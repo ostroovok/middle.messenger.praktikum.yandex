@@ -1,0 +1,9 @@
+@import "/src/assets/styles/colors.scss";
+@import "/src/assets/styles/common.scss";
+
+@mixin font($size: $font-size-normal, $weight: $font-weight-normal, $color: $main-blue, $family: "Inter") {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+}

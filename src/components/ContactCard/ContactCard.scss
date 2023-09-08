@@ -1,0 +1,84 @@
+@import "/src/assets/styles/colors.scss";
+@import "/src/assets/styles/common.scss";
+@import "/src/assets/styles/mixins.scss";
+
+.contact-card {
+  border-top: 1px solid $grey-dark;
+
+  &__container {
+    display: flex;
+    gap: $spacing-sm;
+    padding: $spacing-sml $spacing-sm;
+  }
+
+  &__image-container {
+    border-radius: 50%;
+    background-color: $input-background-grey;
+    width: 47px;
+    height: 47px;
+    margin-top: $spacing-xxs;
+  }
+
+  &__image {
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+  }
+
+  &__content-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    gap: $spacing-l;
+  }
+
+  &__main-data {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__name {
+    @include font($font-size-normal, $font-weight-bold, $text-dark, "Inter");
+  }
+
+  &__message-preview {
+    @include font($font-size-normal, $font-weight-normal, $text-second, "Inter");
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__message-preview-user-prefix {
+    color: $text-dark;
+  }
+
+  &__meta-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__time {
+    @include font(9px, $font-weight-normal, $text-second, "Inter");
+  }
+
+  &__unread-messages {
+    @include font(11px, $font-weight-normal, $white, "Inter");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $main-blue;
+  }
+
+  &:hover {
+    background: $blue-hover;
+    cursor: pointer;
+  }
+}

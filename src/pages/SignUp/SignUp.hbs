@@ -1,0 +1,19 @@
+<div class="sign-up">
+    {{#> Layout}}
+        {{#> Form className="sign-up__form" overlayClassName="sign-up__form-overlay" title="Регистрация"}}
+            <div>
+                {{> Input name="email" labelText="Почта" type="email" overlayClassName=""}}
+                {{> Input name="login" labelText="Логин" type="text" className=""}}
+                {{> Input name="first_name" labelText="Имя" type="text" className=""}}
+                {{> Input name="second_name" labelText="Фамилия" type="text" className=""}}
+                {{> Input name="phone" labelText="Телефон" type="text" className=""}}
+                {{> Input name="password" labelText="Пароль" type="text" className=""}}
+                {{> Input  labelText="Пароль (ещё раз)" type="text" className=""}}
+            </div>
+            <div class="sign-up__action-buttons">
+                {{> Button label="Зарегистрироваться" type="primary" navTo="chats" className=""}}
+                {{> Button label="Войти" type="link" navTo="login" className=""}}
+            </div>
+        {{/Form}}
+    {{/Layout}}
+</div>

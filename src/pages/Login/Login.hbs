@@ -1,0 +1,14 @@
+<div class="login-page">
+    {{#> Layout}}
+        {{#> Form className="login-page__form" overlayClassName="login-page__form-overlay" title="Вход"}}
+            <div>
+                {{> Input placeholder="example@yandex.ru" name="login" labelText="Логин" }}
+                {{> Input name="password" labelText="Пароль"}}
+            </div>
+            <div class="login-page__action-buttons">
+                {{> Button label="Войти" type="primary" navTo="chats" className=""}}
+                {{> Button label="Нет аккаунта?" type="link" navTo="signUp" className=""}}
+            </div>
+        {{/Form}}
+    {{/Layout}}
+</div>

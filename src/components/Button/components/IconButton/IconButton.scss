@@ -1,0 +1,20 @@
+@import "/src/assets/styles/colors.scss";
+@import "/src/assets/styles/common.scss";
+@import "/src/assets/styles/mixins.scss";
+
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+  width: 100%;
+  max-width: 60px;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    background: $main-blue;
+    transition: $common-transition;
+  }
+}

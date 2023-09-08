@@ -1,0 +1,31 @@
+<div class="edit-profile-page">
+    {{#> Sider className="edit-profile-page__back-button"}}
+      {{> IconButton navTo="profile" imageSrc="/src/assets/images/arrow-blue.svg"}}
+    {{/Sider}}
+    {{#> Layout className="edit-profile-page__container"}}
+       {{#> Form className="edit-profile-page__form-container"}}
+        <div class="edit-profile-page__form-data">
+          <div class="edit-profile-page__avatar">
+            {{> Avatar 
+                  imageSrc="/src/assets/images/unknown-image.svg" 
+                  label="Поменять аватар" 
+                  name="avatar" 
+                  className="" 
+                  disabled="true"
+            }}
+          </div>
+          <div class="edit-profile-page__fields">
+            {{> EditableField name="email" label="Почта" type="email" value="pochta@yandex.ru" className=""}}
+            {{> EditableField name="login" label="Логин" type="text" value="ivanivanov" className=""}}
+            {{> EditableField name="first_name" label="Имя" type="text" value="Иван" className=""}}
+            {{> EditableField name="second_name" label="Фамилия" type="text" value="Иванов" className=""}}
+            {{> EditableField name="display_name" label="Имя в чате" type="text" value="Иван" className=""}}
+            {{> EditableField name="phone" label="Телефон" type="text" value="+7 (909) 967 30 30" className=""}}
+          </div>
+        </div>
+        <div class="edit-profile-page__actions">
+            {{> Button label="Сохранить" navTo="profile" type="primary" className="edit-profile-page__action-button"}}
+        </div>
+       {{/Form}}
+    {{/Layout}}
+</div>
