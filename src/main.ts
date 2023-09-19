@@ -1,49 +1,53 @@
 import Handlebars from 'handlebars';
 import * as Components from './components';
 import * as Pages from './pages';
+import Block from './core/Block';
 import './global.scss';
 import { registerComponent } from './core/resgiterComponent';
 
-const pages = {
-	login: Pages.LoginPage,
-	// signUp: [Pages.SignUp],
-	// chats: [Pages.Chats],
-	// notFound: [
-	// 	Pages.Error,
-	// 	{
-	// 		title: '404',
-	// 		subTitle: 'Не туда попали',
-	// 	},
-	// ],
-	// serverError: [
-	// 	Pages.Error,
-	// 	{
-	// 		title: '500',
-	// 		subTitle: 'Мы уже фиксим',
-	// 	},
-	// ],
-	// profile: [Pages.Profile],
-	// editProfile: [Pages.EditProfilePage],
-	// changePassword: [Pages.ChangePasswordPage],
+const pages: { [key: string]: [typeof Block, context: any] } = {
+	login: [Pages.Login, {}],
+	signUp: [Pages.SignUp, {}],
+	chats: [Pages.Chats, {}],
+	notFound: [
+		Pages.Error,
+		{
+			title: '404',
+			subTitle: 'Не туда попали',
+		},
+	],
+	serverError: [
+		Pages.Error,
+		{
+			title: '500',
+			subTitle: 'Мы уже фиксим',
+		},
+	],
+	profile: [Pages.Profile, {}],
+	editProfile: [Pages.EditProfilePage, {}],
+	changePassword: [Pages.ChangePasswordPage, {}],
 };
 
 Handlebars.registerPartial('Form', Components.Form);
-// Handlebars.registerPartial('ListCat', Components.ListCat);
-// Handlebars.registerPartial('CatCard', Components.CatCard);
+Handlebars.registerPartial('Layout', Components.Layout);
+Handlebars.registerPartial('Sider', Components.Sider);
+Handlebars.registerPartial('ContactList', Components.ContactList);
 
 registerComponent('Input', Components.Input);
 registerComponent('InputField', Components.InputField);
 registerComponent('Button', Components.Button);
-// registerComponent('Input', Components.Input);
-// registerComponent('ErrorLine', Components.ErrorLine);
+registerComponent('ErrorLine', Components.ErrorLine);
+registerComponent('ContactCard', Components.ContactCard);
+registerComponent('IconButton', Components.IconButton);
+registerComponent('Avatar', Components.Avatar);
+registerComponent('ProfileInputField', Components.ProfileInputField);
 
-function navigate(page: string) {
-	const app = document.getElementById('root');
+function navigate(page: keyof typeof pages) {
+	const container = document.getElementById('root');
+	const [Component, context] = pages[page];
+	const component = new Component(context);
 
-	//@ts-ignore
-	const Component = pages[page];
-	const component = new Component();
-	app?.append(component.getContent()!);
+	container?.replaceChildren(component.getContent()!);
 }
 
 document.addEventListener('DOMContentLoaded', () => navigate('login'));

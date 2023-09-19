@@ -22,9 +22,10 @@ export class Input extends Block {
 	}
 
 	protected render(): string {
-		const { disabled, inputClassName, name, placeholder, type, value } = this.props as InputProps;
+		const { disabled, inputClassName, name, placeholder = '', type, value } = this.props as InputProps;
 
 		const disabledAttr = disabled ? 'disabled="disabled"' : '';
+		const valueAttr = value ? `value="${value}"` : '';
 
 		return `
 			<input
@@ -33,7 +34,7 @@ export class Input extends Block {
 				placeholder="${placeholder}"
 				name="${name}"
 				type="${type}"
-				value="${value || ''}"
+				${valueAttr}
 				${disabledAttr}
 			/>
         `;

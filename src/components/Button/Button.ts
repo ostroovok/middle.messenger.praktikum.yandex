@@ -1,11 +1,11 @@
 import Block from '../../core/Block';
 import { noop } from '../../shared/utils';
-import { default as ButtonTemplate } from './Button.hbs?raw';
 
 interface ButtonProps {
 	type: 'primary' | 'link';
 	label: string;
 	navTo: string;
+	className: string;
 	onClick: () => void;
 }
 
@@ -18,10 +18,13 @@ export class Button extends Block {
 	}
 
 	protected render(): string {
-		const { type, label, navTo } = this.props;
+		const { type, label, navTo, className } = this.props;
 		return `
-            <button type="button" class="button button__${type}" ${navTo ? `page="${navTo}"` : ''}>
-                ${label}
+            <button 
+			type="button" 
+			class="button button__${type} ${className}" 
+			${navTo ? `page="${navTo}"` : ''}>
+				${label}
             </button>
         `;
 	}

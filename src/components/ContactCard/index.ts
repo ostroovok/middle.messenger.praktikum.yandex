@@ -1,2 +1,2 @@
 import "./ContactCard.scss";
-export { default as ContactCard } from "./ContactCard.hbs?raw";
+export { ContactCard } from "./ContactCard.ts";

@@ -1,2 +1,2 @@
 import "./Login.scss";
-export { LoginPage } from "./Login.ts";
+export { Login } from "./Login";

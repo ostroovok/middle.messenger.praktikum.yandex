@@ -1,9 +1,11 @@
 import Block from '../../core/Block';
+import { ValidationCallback } from '../../shared/types';
 import { InputProps } from '../Input/Input';
 
 type InputFieldProps = InputProps & {
 	labelClassName?: string;
-	labelText?: string;
+	label?: string;
+	validate: ValidationCallback;
 };
 
 export class InputField extends Block {
@@ -22,41 +24,46 @@ export class InputField extends Block {
 	}
 
 	private validate() {
-		console.log(this.refs);
-
 		// @ts-ignore
 		const value = this.refs.input._element.value;
-		// const error = this.props.validate?.(value);
-		// if (error) {
-		// 	this.refs.errorLine.setProps({ error });
-		// 	return false;
-		// }
-		// this.refs.errorLine.setProps({ error: undefined });
+		const errorText = this.props.validate?.(value);
+		if (errorText) {
+			this.refs.errorLine.setProps({ errorText });
+			return false;
+		}
+		this.refs.errorLine.setProps({ errorText: undefined });
 		return true;
 	}
 
 	protected render(): string {
-		const { disabled, inputClassName, labelClassName, labelText, name, placeholder, type, value } =
-			this.props as InputFieldProps;
-
-		const disabledAttr = disabled ? 'disabled="disabled"' : '';
-		const valueAttr = disabled ? `value="${value}"` : '';
+		const {
+			disabled = false,
+			inputClassName,
+			labelClassName,
+			label,
+			name,
+			placeholder = '',
+			type,
+			value = '',
+		} = this.props as InputFieldProps;
 
 		return `
-            <div class="input">
-                <label for${name} class="input__container ${labelClassName}">
-                    <div class="input__label">${labelText}</div>
-                    {{{ Input 
+           <div class="input">
+				<label for${name} class="input__container ${labelClassName}">
+					<div class="input__label">${label}</div>
+					{{{ Input 
 						ref="input"
-                        class="input__element ${inputClassName}"
-                        placeholder="${placeholder}"
-                        name="${name}"
-                        type="${type}"
-                        ${valueAttr}
-                        ${disabledAttr}
+						inputClassName="${inputClassName}"
+						name="${name}"
+						type="${type}"
+						value="${value}"
+						onBlur=onBlur
+						placeholder="${placeholder}"
+						disabled=${disabled}
 					}}}
-                </label>
-            </div>
+				</label>
+				{{{ ErrorLine errorText=error ref="errorLine"}}}
+		   </div>
         `;
 	}
 }
