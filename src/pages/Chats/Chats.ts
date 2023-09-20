@@ -18,7 +18,9 @@ export class Chats extends Block {
                             <path d="M1 9L5 5L1 1" stroke="#999999"/>
                         </svg>
                     </div>
-                    {{{ Input placeholder="Поиск" ref="search" overlayClassName="chats-page__search-container" inputClassName="chats-page__search" }}}
+                    <div class="chats-page__search-container">
+                        {{{ Input placeholder="Поиск" ref="search" inputClassName="chats-page__search" }}}
+                    </div>
                     {{#> ContactList }}
                         {{{ ContactCard
                             avatarUrl="/src/assets/images/unknown-image.svg" 
@@ -42,18 +44,15 @@ export class Chats extends Block {
                             unreadMessages=""
                             sendByUser="true"
                         }}}
-                    {{/ContactList}}
-                {{/Sider}}
-                {{#> Layout className="chats-page__messages-window"}}
-                    <div class="chats-page__plug">
-                        <span>
-                            Выберите чат чтобы отправить сообщение (в разработке)
-                        </span>
+                        
                         <div>
                             {{{ Button label="Страница 404" type="link" navTo="notFound" className="" }}}
                             {{{ Button label="Страница 5**" type="link" navTo="serverError" className="" }}}
                         </div>
-                    </div>
+                    {{/ContactList}}
+                {{/Sider}}
+                {{#> Layout className="chats-page__messages-window"}}
+                    {{{ Chat }}}
                 {{/Layout}}
             {{/Layout}}
         </div>

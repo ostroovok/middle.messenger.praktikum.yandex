@@ -41,6 +41,9 @@ registerComponent('ContactCard', Components.ContactCard);
 registerComponent('IconButton', Components.IconButton);
 registerComponent('Avatar', Components.Avatar);
 registerComponent('ProfileInputField', Components.ProfileInputField);
+registerComponent('Chat', Components.Chat);
+registerComponent('Plug', Components.Plug);
+registerComponent('Message', Components.Message);
 
 function navigate(page: keyof typeof pages) {
 	const container = document.getElementById('root');

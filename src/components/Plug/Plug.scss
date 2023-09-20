@@ -1,0 +1,9 @@
+@import '/src/assets/styles/colors.scss';
+@import '/src/assets/styles/common.scss';
+@import '/src/assets/styles/mixins.scss';
+
+.plug {
+	&__container {
+		@include font(12px, $font-weight-normal, $text-second, 'Inter');
+	}
+}

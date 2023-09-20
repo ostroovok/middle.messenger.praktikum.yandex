@@ -48,7 +48,7 @@ export class InputField extends Block {
 		} = this.props as InputFieldProps;
 
 		return `
-           <div class="input">
+           <div class="input {{overlayClassName}}">
 				<label for${name} class="input__container ${labelClassName}">
 					<div class="input__label">${label}</div>
 					{{{ Input 
