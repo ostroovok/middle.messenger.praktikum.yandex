@@ -5,8 +5,10 @@
 		"module": "ESNext",
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"skipLibCheck": true,
+		"typeRoots": ["node_modules/@types"],
 
 		/* Bundler mode */
+		"baseUrl": ".",
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
 		"resolveJsonModule": true,
@@ -20,9 +22,8 @@
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
 		"sourceMap": true,
-		"strictNullChecks": true,
-
-		"baseUrl": "."
+		"strictNullChecks": true
 	},
-	"include": ["src/**/*"]
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", ".vscode"]
 }
