@@ -1,4 +1,4 @@
-import EventBus from './EventBus';
+import EventBus, { Listener } from './EventBus';
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 
@@ -85,7 +85,7 @@ class Block<T extends BlockProps = BlockProps> {
 	_registerEvents(eventBus: EventBus) {
 		eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
 		eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
-		eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+		eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this) as Listener<unknown[]>);
 		eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
 	}
 
