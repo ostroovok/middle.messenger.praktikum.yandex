@@ -1,5 +1,4 @@
 import Block from 'src/core/Block';
-import { noop } from 'src/shared/utils';
 import { default as IconButtonTemplate } from './IconButton.hbs?raw';
 
 type IconButtonProps = {
@@ -14,7 +13,7 @@ export class IconButton extends Block {
 	constructor(props: IconButtonProps) {
 		super(props);
 		this.props.events = {
-			click: this.props.onClick || noop,
+			click: this.props.onClick as () => void,
 		};
 	}
 

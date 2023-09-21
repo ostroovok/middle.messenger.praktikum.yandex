@@ -29,7 +29,7 @@ export class InputField extends Block {
 	private validate() {
 		const { showError } = this.props;
 		const {value} = (this.refs.input as InputField)?.element as HTMLInputElement;
-		const errorText = this.props.validate?.(value);
+		const errorText = (this.props as InputFieldProps).validate?.(value);
 		if (errorText) {
 			showError && this.refs.errorLine.setProps({ errorText });
 			return false;

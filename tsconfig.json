@@ -33,8 +33,7 @@
 	  "strictNullChecks": true
 	},
 	"include": [
-	  "src/**/*.ts",
-	  "types"
+	  "src/**/*.ts"
 	],
 	"exclude": [
 	  "node_modules",
