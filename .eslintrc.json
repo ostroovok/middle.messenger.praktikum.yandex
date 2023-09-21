@@ -20,7 +20,8 @@
 				"paths": "./tsconfig.json"
 			},
 			"node": {
-				"extensions": [".js", ".ts"]
+				"extensions": [".js", ".ts", ".hbs"],
+				"moduleDirectory": ["node_modules", "src/"]
 			}
 		}
 	},

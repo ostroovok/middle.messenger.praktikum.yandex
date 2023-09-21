@@ -1,11 +1,12 @@
 import Handlebars from 'handlebars';
 import * as Components from './components';
+import * as Partials from './partials';
 import * as Pages from './pages';
 import Block from './core/Block';
 import './global.scss';
 import { registerComponent } from './core/resgiterComponent';
 
-const pages: { [key: string]: [typeof Block, context: any] } = {
+const pages: { [key: string]: [typeof Block<Record<string, unknown>>, context: any] } = {
 	login: [Pages.Login, {}],
 	signUp: [Pages.SignUp, {}],
 	chats: [Pages.Chats, {}],
@@ -28,22 +29,14 @@ const pages: { [key: string]: [typeof Block, context: any] } = {
 	changePassword: [Pages.ChangePasswordPage, {}],
 };
 
-Handlebars.registerPartial('Form', Components.Form);
-Handlebars.registerPartial('Layout', Components.Layout);
-Handlebars.registerPartial('Sider', Components.Sider);
-Handlebars.registerPartial('ContactList', Components.ContactList);
+Handlebars.registerPartial('Form', Partials.Form);
+Handlebars.registerPartial('Layout', Partials.Layout);
+Handlebars.registerPartial('Sider', Partials.Sider);
+Handlebars.registerPartial('ContactList', Partials.ContactList);
 
-registerComponent('Input', Components.Input);
-registerComponent('InputField', Components.InputField);
-registerComponent('Button', Components.Button);
-registerComponent('ErrorLine', Components.ErrorLine);
-registerComponent('ContactCard', Components.ContactCard);
-registerComponent('IconButton', Components.IconButton);
-registerComponent('Avatar', Components.Avatar);
-registerComponent('ProfileInputField', Components.ProfileInputField);
-registerComponent('Chat', Components.Chat);
-registerComponent('Plug', Components.Plug);
-registerComponent('Message', Components.Message);
+Object.entries(Components).forEach(([key, source]) => {
+	registerComponent(key, source as typeof Block);
+});
 
 function navigate(page: keyof typeof pages) {
 	const container = document.getElementById('root');

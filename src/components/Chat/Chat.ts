@@ -1,4 +1,6 @@
-import Block from '../../core/Block';
+import Block from 'src/core/Block';
+import { logFormData } from 'src/shared/logFormData';
+import { RefsType } from 'src/shared/types';
 import { default as ChatTemplate } from './Chat.hbs?raw';
 
 type ChatProps = {};
@@ -10,14 +12,7 @@ export class Chat extends Block {
 			validate: {
 				message: (value: string) => value.length === 0,
 			},
-			send: (event: InputEvent) => {
-				event.preventDefault();
-				const message = this.refs.message.value();
-
-				console.log({
-					message,
-				});
-			},
+			onSend: (event: MouseEvent) => logFormData(this.refs as RefsType, event),
 		});
 	}
 

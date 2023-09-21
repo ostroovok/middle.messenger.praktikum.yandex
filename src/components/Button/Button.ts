@@ -1,8 +1,8 @@
-import Block from '../../core/Block';
-import { noop } from '../../shared/utils';
+import Block from 'src/core/Block';
+import { noop } from 'src/shared/utils';
 import { default as ButtonTemplate } from './Button.hbs?raw';
 
-interface ButtonProps {
+type ButtonProps = {
 	type: 'primary' | 'link';
 	label: string;
 	navTo: string;

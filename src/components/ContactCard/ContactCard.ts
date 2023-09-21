@@ -1,4 +1,4 @@
-import Block from '../../core/Block';
+import Block from 'src/core/Block';
 import { default as ContactCardTemplate } from './ContactCard.hbs?raw';
 
 

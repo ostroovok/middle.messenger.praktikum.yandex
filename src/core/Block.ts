@@ -2,7 +2,7 @@ import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 
-type BlockProps = Record<string, unknown | Block<BlockProps>> & {
+export type BlockProps = Record<string, unknown | Block<BlockProps>> & {
 	events?: Record<string, () => void>;
 } & object;
 

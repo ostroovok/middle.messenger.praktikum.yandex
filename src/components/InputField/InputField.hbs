@@ -2,14 +2,14 @@
   <label {{#if name}}for="{{name}}" {{/if}} class="input__container {{labelClassName}}">
     <div class="input__label">{{label}}</div>
     {{{ Input
-    ref="input"
-    inputClassName=inputClassName
-    name=name
-    type=type
-    value=value
-    onBlur=onBlur
-    placeholder=placeholder
-    disabled=disabled
+        ref="input"
+        inputClassName=inputClassName
+        name=name
+        type=type
+        value=value
+        onBlur=onBlur
+        placeholder=placeholder
+        disabled=disabled
     }}}
   </label>
   {{#if showError}}{{{ ErrorLine errorText=error ref="errorLine"}}}{{/if}}

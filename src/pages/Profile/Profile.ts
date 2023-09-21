@@ -1,4 +1,4 @@
-import Block from '../../core/Block';
+import Block from 'src/core/Block';
 import { default as ProfileTemplate } from './Profile.hbs?raw';
 
 type ProfileProps = {};

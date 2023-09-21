@@ -1,5 +1,5 @@
-import Block from '../../core/Block';
-import { ValidationCallback } from '../../shared/types';
+import Block from 'src/core/Block';
+import { ValidationCallback } from 'src/shared/types';
 import { InputProps } from '../Input/Input';
 import { default as InputFieldTemplate } from './InputField.hbs?raw';
 
@@ -23,14 +23,12 @@ export class InputField extends Block {
 		if (!this.validate()) {
 			return false;
 		}
-		// @ts-ignore
-		return this.refs.input._element.value;
+		return ((this.refs.input as InputField)?.element as HTMLInputElement).value;
 	}
 
 	private validate() {
-		// @ts-ignore
 		const { showError } = this.props;
-		const value = this.refs.input._element.value;
+		const value = ((this.refs.input as InputField)?.element as HTMLInputElement).value;
 		const errorText = this.props.validate?.(value);
 		if (errorText) {
 			showError && this.refs.errorLine.setProps({ errorText });

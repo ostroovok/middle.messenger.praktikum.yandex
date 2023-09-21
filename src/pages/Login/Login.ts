@@ -1,4 +1,6 @@
-import Block from '../../core/Block';
+import Block from 'src/core/Block';
+import { logFormData } from 'src/shared/logFormData';
+import { RefsType } from 'src/shared/types';
 import { default as LoginTemplate } from './Login.hbs?raw';
 
 type LoginProps = {};
@@ -11,16 +13,7 @@ export class Login extends Block {
 				login: (value: string) =>
 					value.length < 3 && value.length !== 0 ? `Length of login should not be less 3 letters.` : '',
 			},
-			onLogin: (event: InputEvent) => {
-				event.preventDefault();
-				const login = this.refs.login.value();
-				const password = this.refs.password.value();
-
-				console.log({
-					login,
-					password,
-				});
-			},
+			onLogin: (event: MouseEvent) => logFormData(this.refs as RefsType, event)
 		});
 	}
 

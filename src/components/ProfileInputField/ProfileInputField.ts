@@ -1,6 +1,7 @@
-import Block from '../../core/Block';
-import { ValidationCallback } from '../../shared/types';
+import Block from 'src/core/Block';
+import { ValidationCallback } from 'src/shared/types';
 import { default as ProfileInputFieldTemplate } from './ProfileInputField.hbs?raw';
+import { InputField } from '..';
 
 type ProfileInputFieldProps = {
 	name: string;
@@ -20,7 +21,7 @@ export class ProfileInputField extends Block {
 	}
 
 	public value() {
-		return this.refs.inputField.value();
+		return (this.refs.inputField as InputField).value();
 	}
 
 	protected render(): string {
