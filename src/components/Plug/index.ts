@@ -1,2 +1,2 @@
 import './Plug.scss';
-export { Plug } from './PLug';
+export { Plug } from './Plug';

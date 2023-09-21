@@ -29,7 +29,6 @@ class Block<T extends BlockProps = BlockProps> {
 	public children: Record<string, Block>;
 	private eventBus: () => EventBus;
 	private _element: HTMLElement | null = null;
-	private _meta: { props: any };
 
 	/** JSDoc
 	 * @param {string} tagName
@@ -41,10 +40,6 @@ class Block<T extends BlockProps = BlockProps> {
 		const eventBus = new EventBus();
 
 		const { props, children } = this._getChildrenAndProps(propsWithChildren);
-
-		this._meta = {
-			props,
-		};
 
 		this.children = children;
 		this.props = this._makePropsProxy(props);

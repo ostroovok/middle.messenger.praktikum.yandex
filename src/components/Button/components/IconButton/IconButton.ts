@@ -6,7 +6,7 @@ type IconButtonProps = {
 	className: string;
 	type: string;
 	navTo: string;
-	imageSrc: string;
+	icon: string;
 	onClick: () => void;
 };
 
