@@ -2,3 +2,8 @@
 *.json
 *.svg
 *.scss
+
+/dist
+**/*.min.js
+/node_modules 
+.github

@@ -4,16 +4,16 @@ import { RefsType } from 'src/shared/types';
 import { passwordValidation } from 'src/shared/validation';
 import { default as ChangePasswordPageTemplate } from './ChangePasswordPage.hbs?raw';
 
-type ChangePasswordPageProps = {};
-
 export class ChangePasswordPage extends Block {
-	constructor(props: ChangePasswordPageProps) {
+	constructor() {
 		super({
-			...props,
-            validate: {
-                newPassword: (value: string) => passwordValidation(value) ? '' : 'Пароль должен содержать 8-40 символов, не менне одной заглавной буквы и одной цифры'
-            },
-			onSubmit: (event: MouseEvent) => logFormData(this.refs as RefsType, event)
+			validate: {
+				newPassword: (value: string) =>
+					passwordValidation(value)
+						? ''
+						: 'Пароль должен содержать 8-40 символов, не менне одной заглавной буквы и одной цифры',
+			},
+			onSubmit: (event: MouseEvent) => logFormData(this.refs as RefsType, event),
 		});
 	}
 

@@ -29,27 +29,17 @@ function queryStringify(data: RequestDataType) {
 	}
 
 	const keys = Object.keys(data);
-	return keys.reduce((result, key, index) => {
-		return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
-	}, '?');
+	return keys.reduce((result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`, '?');
 }
 
 export class HTTPTransport {
-	get: MethodType = (url, options) => {
-		return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
-	};
+	get: MethodType = (url, options) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
 
-	post: MethodType = (url, options) => {
-		return this.request(url, { ...options, method: METHODS.POST }, options.timeout);
-	};
+	post: MethodType = (url, options) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
 
-	put: MethodType = (url, options) => {
-		return this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
-	};
+	put: MethodType = (url, options) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
 
-	delete: MethodType = (url, options) => {
-		return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
-	};
+	delete: MethodType = (url, options) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 
 	request: RequestMethodType = (url, options, timeout = 5000) => {
 		const { headers = {}, method, data } = options;

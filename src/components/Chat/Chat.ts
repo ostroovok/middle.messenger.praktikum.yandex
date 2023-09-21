@@ -3,12 +3,9 @@ import { logFormData } from 'src/shared/logFormData';
 import { RefsType } from 'src/shared/types';
 import { default as ChatTemplate } from './Chat.hbs?raw';
 
-type ChatProps = {};
-
 export class Chat extends Block {
-	constructor(props: ChatProps) {
+	constructor() {
 		super({
-			...props,
 			validate: {
 				message: (value: string) => value.length === 0,
 			},

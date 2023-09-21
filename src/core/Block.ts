@@ -24,7 +24,7 @@ class Block<T extends BlockProps = BlockProps> {
 	};
 
 	public id = nanoid(6);
-	protected props: any;
+	protected props: BlockProps;
 	protected refs: Record<string, Block> = {};
 	public children: Record<string, Block>;
 	private eventBus: () => EventBus;
@@ -52,7 +52,7 @@ class Block<T extends BlockProps = BlockProps> {
 	}
 
 	_getChildrenAndProps(childrenAndProps: BlockProps) {
-		const props: Record<string, any> = {};
+		const props: Record<string, unknown> = {};
 		const children: Record<string, Block> = {};
 
 		Object.entries(childrenAndProps).forEach(([key, value]) => {
@@ -152,7 +152,7 @@ class Block<T extends BlockProps = BlockProps> {
 	}
 
 	private compile(template: string, context: BlockProps) {
-		const contextAndStubs: ContextAndStubsType  = { ...context, __refs: this.refs };
+		const contextAndStubs: ContextAndStubsType = { ...context, __refs: this.refs };
 
 		const html = Handlebars.compile(template)(contextAndStubs);
 
@@ -160,7 +160,7 @@ class Block<T extends BlockProps = BlockProps> {
 
 		temp.innerHTML = html;
 
-		contextAndStubs.__children?.forEach(({ embed }: any) => {
+		contextAndStubs.__children?.forEach(({ embed }: RootChildren) => {
 			embed(temp.content);
 		});
 
@@ -176,6 +176,7 @@ class Block<T extends BlockProps = BlockProps> {
 	}
 
 	_makePropsProxy(props: BlockProps) {
+		// eslint-disable-next-line @typescript-eslint/no-this-alias
 		const self = this;
 
 		return new Proxy(props, {
@@ -201,12 +202,19 @@ class Block<T extends BlockProps = BlockProps> {
 		return document.createElement(tagName);
 	}
 
+	_setDisplay(value: string) {
+		const content = this.getContent();
+		if (content) {
+			content.style.display = value;
+		}
+	}
+
 	show() {
-		this.getContent()!.style.display = 'block';
+		this._setDisplay('block');
 	}
 
 	hide() {
-		this.getContent()!.style.display = 'none';
+		this._setDisplay('none');
 	}
 }
 

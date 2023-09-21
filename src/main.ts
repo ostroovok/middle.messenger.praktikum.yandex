@@ -6,7 +6,7 @@ import Block from './core/Block';
 import './global.scss';
 import { registerComponent } from './core/resgiterComponent';
 
-const pages: { [key: string]: [typeof Block<Record<string, unknown>>, context: any] } = {
+const pages: { [key: string]: [typeof Block<Record<string, unknown>>, context: Record<string, unknown>] } = {
 	login: [Pages.Login, {}],
 	signUp: [Pages.SignUp, {}],
 	chats: [Pages.Chats, {}],
@@ -43,14 +43,15 @@ function navigate(page: keyof typeof pages) {
 	const [Component, context] = pages[page];
 	const component = new Component(context);
 
-	container?.replaceChildren(component.getContent()!);
+	const content = component.getContent();
+
+	content && container?.replaceChildren(content);
 }
 
 document.addEventListener('DOMContentLoaded', () => navigate('login'));
 
 document.addEventListener('click', e => {
-	//@ts-ignore
-	const page = e.target.getAttribute('page');
+	const page = (e.target as HTMLElement)?.getAttribute?.('page');
 	if (page) {
 		navigate(page);
 

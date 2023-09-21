@@ -1,4 +1,4 @@
-.defaul-icon {
+%defaul-icon {
 	background-position: center;
 	background-repeat: no-repeat;
 	min-width: 40px;
@@ -6,33 +6,39 @@
 }
 
 .more-icon {
-	@extend .defaul-icon;
+	@extend %defaul-icon;
+
 	background-image: url('/src/assets/images/more.svg');
 }
 
 .arrow-blue-icon {
-	@extend .defaul-icon;
+	@extend %defaul-icon;
+
 	background-image: url('/src/assets/images/arrow-blue.svg');
 }
 
 .attachment-icon {
-	@extend .defaul-icon;
+	@extend %defaul-icon;
+
 	background-image: url('/src/assets/images/attachment.svg');
 }
 
 .check-marker-icon {
-	@extend .defaul-icon;
+	@extend %defaul-icon;
+
 	background-image: url('/src/assets/images/check-marker.svg');
 	min-width: 11px;
 	min-height: 5px;
 }
 
 .send-icon {
-	@extend .defaul-icon;
+	@extend %defaul-icon;
+
 	background-image: url('/src/assets/images/send.svg');
 }
 
 .unknown-image-icon {
-	@extend .defaul-icon;
+	@extend %defaul-icon;
+
 	background-image: url('/src/assets/images/unknown-image.svg');
 }

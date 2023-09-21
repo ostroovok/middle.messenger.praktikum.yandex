@@ -3,5 +3,6 @@
 
 .error-line {
 	transform: translateY($spacing-s);
+
     @include font($font-size-small, $font-weight-light, $error-text);
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type Listener<T extends unknown[] = any[]> = (...args: T) => void;
 
 export default class EventBus<
@@ -11,7 +12,7 @@ export default class EventBus<
 			this.listeners[event] = [];
 		}
 
-		this.listeners[event]!.push(callback);
+		this.listeners[event]?.push(callback);
 	}
 
 	off(event: E, callback: Listener<M[E]>) {
@@ -19,16 +20,15 @@ export default class EventBus<
 			throw new Error(`Нет события: ${event}`);
 		}
 
-		this.listeners[event] = this.listeners[event]!.filter(listener => listener !== callback);
+		this.listeners[event] = this.listeners[event]?.filter(listener => listener !== callback);
 	}
 
 	emit(event: E, ...args: M[E]) {
 		if (!this.listeners[event]) {
 			return;
-			// throw new Error(`Нет события: ${event}`);
 		}
 
-		this.listeners[event]!.forEach(function (listener) {
+		this.listeners[event]?.forEach(function (listener) {
 			listener(...args);
 		});
 	}

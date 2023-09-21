@@ -1,12 +1,14 @@
-@import "/src/assets/styles/colors.scss";
-@import "/src/assets/styles/common.scss";
-@import "/src/assets/styles/mixins.scss";
+@import "/src/assets/styles/colors";
+@import "/src/assets/styles/common";
+@import "/src/assets/styles/mixins";
 
 .error-page {
   height: 100%;
+
   &__layout {
     height: 100%;
   }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -14,11 +16,14 @@
     align-items: center;
     gap: 20px;
   }
+
   &__title {
     @include font(40px, $font-weight-normal, $text-dark);
   }
+
   &__subTitle {
     @include font(20px, $font-weight-normal, $text-dark);
+
     margin-bottom: 40px;
   }
 }

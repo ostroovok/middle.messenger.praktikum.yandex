@@ -3,22 +3,19 @@ $font-size-small: 10px;
 $font-size-normal: 14px;
 $font-size-large: 18px;
 $font-size-title: 20px;
-
 $font-weight-light: 500;
 $font-weight-normal: 500;
 $font-weight-bold: 600;
-
 $common-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-
 $space-unit: 8px;
-$spacing-xxs: $space-unit*0.25;
-$spacing-xs: $space-unit*0.5;
-$spacing-s: $space-unit*1;
-$spacing-sm: $space-unit*1.25;
-$spacing-sml: $space-unit*1.5;
-$spacing-m: $space-unit*2;
-$spacing-lms: $space-unit*2.25;
-$spacing-lml: $space-unit*2.5;
-$spacing-l: $space-unit*3;
-$spacing-xl: $space-unit*4;
-$spacing-none: 0px;
+$spacing-xxs: $space-unit * 0.25;
+$spacing-xs: $space-unit * 0.5;
+$spacing-s: $space-unit * 1;
+$spacing-sm: $space-unit * 1.25;
+$spacing-sml: $space-unit * 1.5;
+$spacing-m: $space-unit * 2;
+$spacing-lms: $space-unit * 2.25;
+$spacing-lml: $space-unit * 2.5;
+$spacing-l: $space-unit * 3;
+$spacing-xl: $space-unit * 4;
+$spacing-none: 0;

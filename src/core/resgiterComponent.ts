@@ -1,6 +1,5 @@
-import Handlebars from 'handlebars';
+import Handlebars, { HelperOptions } from 'handlebars';
 import Block from './Block';
-import { HelperOptions } from 'handlebars';
 
 export function registerComponent(name: string, Component: typeof Block) {
 	if (name in Handlebars.helpers) {
@@ -26,7 +25,8 @@ export function registerComponent(name: string, Component: typeof Block) {
 
 				component.getContent()?.append(...Array.from(stub.childNodes));
 
-				stub.replaceWith(component.getContent()!);
+				const content = component.getContent();
+				content && stub.replaceWith();
 			},
 		});
 

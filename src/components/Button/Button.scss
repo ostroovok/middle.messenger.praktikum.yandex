@@ -1,12 +1,11 @@
-@import "/src/assets/styles/colors.scss";
-@import "/src/assets/styles/common.scss";
-@import "/src/assets/styles/mixins.scss";
+@import "/src/assets/styles/colors";
+@import "/src/assets/styles/common";
+@import "/src/assets/styles/mixins";
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 8px;
   border: none;
   height: 37px;

@@ -9,7 +9,7 @@ export type InputProps = {
 	type?: string;
 	disabled?: boolean;
 	value?: string | number;
-	onBlur: () => {};
+	onBlur: () => void;
 };
 
 export class Input extends Block {

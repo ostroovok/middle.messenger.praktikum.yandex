@@ -1,6 +1,6 @@
-@import '/src/assets/styles/colors.scss';
-@import '/src/assets/styles/common.scss';
-@import '/src/assets/styles/mixins.scss';
+@import '/src/assets/styles/colors';
+@import '/src/assets/styles/common';
+@import '/src/assets/styles/mixins';
 
 .chats-page {
 	height: 100%;
@@ -14,7 +14,7 @@
 	&__chats-list {
 		background: $grey;
 		width: 310px;
-		padding: 5px 0px;
+		padding: 5px 0;
 		display: flex;
 		flex-direction: column;
 		border-right: 1px solid $grey-dark;
@@ -23,7 +23,7 @@
 	&__search-container {
 		padding: 0;
 		height: 32px;
-		margin: 0px 10px 14px 10px;
+		margin: 0 10px 14px;
 	}
 
 	&__search {
@@ -39,7 +39,7 @@
 		padding: 0;
 		background-position: 39% 50%;
 		color: $text-second;
-		width: -webkit-fill-available;
+		width: fill-available;
 	}
 
 	&__profile-button {
@@ -53,7 +53,7 @@
 		justify-content: flex-end;
 		flex-direction: row;
 		align-items: center;
-		padding: 0px 10px;
+		padding: 0 10px;
 	}
 
 	&__messages-window {

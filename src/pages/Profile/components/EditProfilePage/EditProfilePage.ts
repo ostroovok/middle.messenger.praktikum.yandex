@@ -4,12 +4,10 @@ import { RefsType } from 'src/shared/types';
 import { profileValidationScheme } from 'src/shared/validation';
 import { default as EditProfilePageTemplate } from './EditProfilePage.hbs?raw';
 
-type EditProfilePageProps = {};
 
 export class EditProfilePage extends Block {
-	constructor(props: EditProfilePageProps) {
+	constructor() {
 		super({
-			...props,
 			validate: profileValidationScheme,
 			onSubmit: (event: MouseEvent) => logFormData(this.refs as RefsType, event)
 		});
