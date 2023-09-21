@@ -1,4 +1,6 @@
 import Block from '../../../../core/Block';
+import { noop } from '../../../../shared/utils';
+import { default as IconButtonTemplate } from './IconButton.hbs?raw';
 
 type IconButtonProps = {
 	className: string;
@@ -11,17 +13,12 @@ type IconButtonProps = {
 export class IconButton extends Block {
 	constructor(props: IconButtonProps) {
 		super(props);
+		this.props.events = {
+			click: this.props.onClick || noop,
+		};
 	}
 
 	protected render(): string {
-		const { className, imageSrc, navTo, type } = this.props as IconButtonProps;
-
-		return `
-        <button 
-        class="icon-button ${className}" 
-        type="${type}" 
-        page="${navTo}">
-            <img src="${imageSrc}">
-        </button>`;
+		return IconButtonTemplate;
 	}
 }

@@ -2,8 +2,20 @@ import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 
+type BlockProps = Record<string, unknown | Block<BlockProps>> & {
+	events?: Record<string, () => void>;
+} & object;
+
+type RootChildren = {
+	component: Block<BlockProps>;
+	embed(fragment: DocumentFragment): void;
+};
+type ContextAndStubsType = BlockProps & { __refs: BlockProps } & {
+	__children?: RootChildren[];
+};
+
 // Нельзя создавать экземпляр данного класса
-class Block {
+class Block<T extends BlockProps = BlockProps> {
 	static EVENTS = {
 		INIT: 'init',
 		FLOW_CDM: 'flow:component-did-mount',
@@ -25,7 +37,7 @@ class Block {
 	 *
 	 * @returns {void}
 	 */
-	constructor(propsWithChildren: any = {}) {
+	constructor(propsWithChildren: T = {} as T) {
 		const eventBus = new EventBus();
 
 		const { props, children } = this._getChildrenAndProps(propsWithChildren);
@@ -44,7 +56,7 @@ class Block {
 		eventBus.emit(Block.EVENTS.INIT);
 	}
 
-	_getChildrenAndProps(childrenAndProps: any) {
+	_getChildrenAndProps(childrenAndProps: BlockProps) {
 		const props: Record<string, any> = {};
 		const children: Record<string, Block> = {};
 
@@ -64,6 +76,14 @@ class Block {
 
 		Object.keys(events).forEach(eventName => {
 			this._element?.addEventListener(eventName, events[eventName]);
+		});
+	}
+
+	_removeEvents() {
+		const { events = {} } = this.props;
+
+		Object.keys(events).forEach(eventName => {
+			this._element?.removeEventListener(eventName, events[eventName]);
 		});
 	}
 
@@ -94,17 +114,21 @@ class Block {
 		Object.values(this.children).forEach(child => child.dispatchComponentDidMount());
 	}
 
-	private _componentDidUpdate(oldProps: any, newProps: any) {
+	private _componentDidUpdate(oldProps: BlockProps, newProps: BlockProps) {
 		if (this.componentDidUpdate(oldProps, newProps)) {
 			this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
 		}
 	}
 
-	protected componentDidUpdate(oldProps: any, newProps: any) {
-		return true;
+	protected shouldComponentUpdate(oldProps: BlockProps, newProps: BlockProps) {
+		return oldProps !== newProps;
 	}
 
-	setProps = (nextProps: any) => {
+	protected componentDidUpdate(oldProps: BlockProps, newProps: BlockProps) {
+		return this.shouldComponentUpdate(oldProps, newProps);
+	}
+
+	setProps = (nextProps: BlockProps) => {
 		if (!nextProps) {
 			return;
 		}
@@ -121,6 +145,8 @@ class Block {
 
 		const newElement = fragment.firstElementChild as HTMLElement;
 
+		this._removeEvents();
+
 		if (this._element) {
 			this._element.replaceWith(newElement);
 		}
@@ -130,8 +156,8 @@ class Block {
 		this._addEvents();
 	}
 
-	private compile(template: string, context: any) {
-		const contextAndStubs = { ...context, __refs: this.refs };
+	private compile(template: string, context: BlockProps) {
+		const contextAndStubs: ContextAndStubsType  = { ...context, __refs: this.refs };
 
 		const html = Handlebars.compile(template)(contextAndStubs);
 
@@ -154,15 +180,15 @@ class Block {
 		return this.element;
 	}
 
-	_makePropsProxy(props: any) {
+	_makePropsProxy(props: BlockProps) {
 		const self = this;
 
 		return new Proxy(props, {
-			get(target, prop) {
+			get(target, prop: string) {
 				const value = target[prop];
 				return typeof value === 'function' ? value.bind(target) : value;
 			},
-			set(target, prop, value) {
+			set(target, prop: string, value) {
 				const oldTarget = { ...target };
 
 				target[prop] = value;

@@ -1,4 +1,5 @@
 import Block from '../../core/Block';
+import { default as PlugTemplate } from './Plug.hbs?raw';
 
 type PlugProps = {
 	text: string;
@@ -11,13 +12,6 @@ export class Plug extends Block {
 	}
 
 	protected render(): string {
-		return `
-        <div class="plug__container {{className}}">
-            <span>
-                {{text}}
-            </span>
-        </div>`;
+		return PlugTemplate;
 	}
 }
-
-// Выберите чат чтобы отправить сообщение (в разработке)

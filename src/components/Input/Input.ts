@@ -1,5 +1,6 @@
 import Block from '../../core/Block';
 import { noop } from '../../shared/utils';
+import { default as InputTemplate } from './Input.hbs?raw';
 
 export type InputProps = {
 	name?: string;
@@ -13,8 +14,10 @@ export type InputProps = {
 
 export class Input extends Block {
 	constructor(props: InputProps) {
+		const { placeholder = '', ...restProps } = props;
 		super({
-			...props,
+			placeholder,
+			...restProps,
 			events: {
 				blur: props.onBlur || noop,
 			},
@@ -22,21 +25,6 @@ export class Input extends Block {
 	}
 
 	protected render(): string {
-		const { disabled, inputClassName, name, placeholder = '', type, value } = this.props as InputProps;
-
-		const disabledAttr = disabled ? 'disabled="disabled"' : '';
-		const valueAttr = value ? `value="${value}"` : '';
-
-		return `
-			<input
-				ref="input"
-				class="input__element ${inputClassName}"
-				placeholder="${placeholder}"
-				name="${name}"
-				type="${type}"
-				${valueAttr}
-				${disabledAttr}
-			/>
-        `;
+		return InputTemplate;
 	}
 }

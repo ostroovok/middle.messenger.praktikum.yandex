@@ -1,13 +1,2 @@
-<div class="input">
-  <label for{{name}} class="input__container {{labelClassName}}">
-    <div class="input__label">{{labelText}}</div>
-    <input
-      class="input__element {{#if inputClassName}}{{inputClassName}}{{/if}}"
-      placeholder="{{placeholder}}"
-      name="{{name}}"
-      type="{{type}}"
-      value="{{value}}"
-      {{#if disabled}}disabled="{{disabled}}"{{/if}}
-    />
-  </label>
-</div>
+<input ref="input" class="input__element {{inputClassName}}" placeholder="{{placeholder}}" name="{{name}}"
+  type="{{type}}" {{#if value}}value="{{value}}" {{/if}} {{#if disabled}}disabled="disabled" {{/if}} />

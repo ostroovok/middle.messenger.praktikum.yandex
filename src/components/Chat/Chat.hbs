@@ -1,0 +1,51 @@
+<div class='chat'>
+	<div class='chat__header'>
+		<div class='chat__user-meta'>
+			<div class='chat__user-icon'></div>
+			<div class='chat__user-name'>Иван</div>
+		</div>
+		<div class='chat__actions'>
+			{{{IconButton imageSrc='/src/assets/images/more.svg' type='primary' className='chat__button'}}}
+		</div>
+	</div>
+	<div class='chat__content'>
+		{{{Message
+			time='11:56'
+			isUserSender=true
+			text='Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой. Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.'
+		}}}
+		{{{Message time='11:56' text='Круто!'}}}
+		{{{Message time='11:56' isUserSender=true text='Круто!'}}}
+		{{{Message
+			time='11:56'
+			text='Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой. Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.'
+		}}}
+	</div>
+	<div class='chat__footer'>
+		<div class='chat__attachment'>
+			{{{IconButton
+				imageSrc='/src/assets/images/attachment.svg'
+				type='primary'
+				className='chat__button'
+			}}}
+		</div>
+		{{{InputField
+			ref='message'
+			placeholder='Сообщение'
+			inputClassName='chat__message'
+			labelClassName='chat__message-container'
+			label=''
+			overlayClassName='chat__message-overlay'
+			validate=validate.message
+			showError=false
+		}}}
+		<div class='chat__attachment'>
+			{{{IconButton
+				imageSrc='/src/assets/images/send.svg'
+				type='primary'
+				onClick=send
+				className='chat__button'
+			}}}
+		</div>
+	</div>
+</div>

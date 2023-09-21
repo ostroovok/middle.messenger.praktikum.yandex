@@ -1,4 +1,5 @@
 import Block from '../../core/Block';
+import { default as LoginTemplate } from './Login.hbs?raw';
 
 type LoginProps = {};
 
@@ -24,21 +25,6 @@ export class Login extends Block {
 	}
 
 	protected render(): string {
-		return `
-			<div class="login-page">
-				{{#> Layout}}
-					{{#> Form className="login-page__form" overlayClassName="login-page__form-overlay" title="Вход"}}
-						<div>
-							{{{ InputField placeholder="example@yandex.ru" ref="login" name="login" label="Логин" validate=validate.login }}}
-							{{{ InputField name="password" ref="password" name="password" label="Пароль" }}}
-						</div>
-						<div class="login-page__action-buttons">
-							{{{ Button label="Войти" type="primary" navTo="chats" onClick=onLogin className=""}}}
-							{{{ Button label="Нет аккаунта?" type="link" navTo="signUp" className=""}}}
-						</div
-					{{/Form}}
-				{{/Layout}}
-			</div>
-        `;
+		return LoginTemplate;
 	}
 }

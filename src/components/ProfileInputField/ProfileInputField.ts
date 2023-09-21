@@ -1,5 +1,6 @@
 import Block from '../../core/Block';
 import { ValidationCallback } from '../../shared/types';
+import { default as ProfileInputFieldTemplate } from './ProfileInputField.hbs?raw';
 
 type ProfileInputFieldProps = {
 	name: string;
@@ -11,7 +12,11 @@ type ProfileInputFieldProps = {
 
 export class ProfileInputField extends Block {
 	constructor(props: ProfileInputFieldProps) {
-		super(props);
+		const { value = '', ...restProps } = props;
+		super({
+			value,
+			...restProps,
+		});
 	}
 
 	public value() {
@@ -19,19 +24,6 @@ export class ProfileInputField extends Block {
 	}
 
 	protected render(): string {
-		const { disabled, label, name, value = '' } = this.props as ProfileInputFieldProps;
-		return `
-            {{{ InputField
-                name="${name}" 
-                label="${label}"
-                type="text"
-                value="${value}"
-                ref="inputField"
-                disabled=${disabled}
-				validate=validate
-                labelClassName="editable-field__container" 
-                inputClassName="editable-field__input"
-            }}}
-        `;
+		return ProfileInputFieldTemplate;
 	}
 }

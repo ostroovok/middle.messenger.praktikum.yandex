@@ -1,13 +1,11 @@
-<div class="editable-field">
-    <div class="editable-field__container {{overlayClassName}}">
-    <label for="{{name}}" class="editable-field__label">{{label}}</label>
-        <input 
-            type={{type}}
-            class="editable-field__input {{className}}"
-            name="{{name}}"
-            value="{{value}}"
-            placeholder="{{placeholder}}"
-            {{#if disabled}}disabled={{disabled}}{{/if}}
-        >
-    </div>
-</div>
+{{{InputField
+	name=name
+	label=label
+	type='text'
+	value=value
+	ref='inputField'
+	disabled=disabled
+	validate=validate
+	labelClassName='editable-field__container'
+	inputClassName='editable-field__input'
+}}}

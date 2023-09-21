@@ -25,6 +25,7 @@
 		margin: 0px 20px;
 		gap: 10px;
 		flex-grow: 1;
+		padding: 10px 0px;
 	}
 
 	&__user-meta {
@@ -113,5 +114,12 @@
 		align-items: center;
 		width: 32px;
 		height: 32px;
+	}
+
+	&__button {
+		&:hover{
+			cursor: pointer;
+			background: inherit !important;
+		}
 	}
 }

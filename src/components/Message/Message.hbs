@@ -1,0 +1,13 @@
+<div class="message {{#if isUserSender}}message__user-sender{{else}}message__user-recipient{{/if}}">
+    <div class="message__content">
+        {{text}}
+        <div class="message__meta-info {{#if isUserSender}}message__meta-info__checked{{/if}}">
+            {{#if isUserSender}}
+            <div class="message__check-marker">
+                <img src="/src/assets/images/check-marker.svg" />
+            </div>
+            {{/if}}
+            {{time}}
+        </div>
+    </div>
+</div>
