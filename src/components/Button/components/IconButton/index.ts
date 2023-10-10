@@ -1,2 +1,2 @@
 import "./IconButton.scss";
-export { default as IconButton } from "./IconButton.hbs?raw";
+export { IconButton } from "./IconButton";

@@ -1,32 +1,31 @@
-@import "/src/assets/styles/colors.scss";
-@import "/src/assets/styles/common.scss";
+@import '/src/assets/styles/colors';
+@import '/src/assets/styles/common';
 
 .sign-up {
-  &__form-overlay {
-    border-radius: 12px;
-    width: 340px;
-    box-shadow: 0 0 6px 0 #00000024;
-    margin: auto;
-    margin-top: 5%;
-    padding: 50px 30px 20px 30px;
+	&__form-overlay {
+		border-radius: 12px;
+		width: 340px;
+		box-shadow: 0 0 6px 0 #00000024;
+		margin: auto;
+		margin-top: 5%;
+		padding: 50px 30px 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+	&__form {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 615px;
+	}
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 615px;
-  }
-
-  &__action-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 4px;
-  }
+	&__action-buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 4px;
+	}
 }

@@ -1,2 +1,2 @@
 import './Error.scss';
-export {default as Error} from './Error.hbs?raw';
+export { Error } from './Error.ts';

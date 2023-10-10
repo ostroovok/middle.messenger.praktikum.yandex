@@ -1,31 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';
+@import "/src/assets/styles/icons";
 
 header,
 footer,
 aside,
 section {
-  display: block;
+	display: block;
 }
 
 body {
-  margin: 0;
+	margin: 0;
 }
 
 body,
 html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-y: hidden;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	box-sizing: border-box;
+}
+
+div {
+	box-sizing: border-box;
 }
 
 #app {
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
 
-  main {
-    height: 100%;
-    width: 100%;
-  }
+	main {
+		height: 100%;
+		width: 100%;
+	}
 }

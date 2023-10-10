@@ -1,14 +1,10 @@
-@import "/src/assets/styles/colors.scss";
-@import "/src/assets/styles/common.scss";
+@import "/src/assets/styles/colors";
+@import "/src/assets/styles/common";
 
 .editable-field {
   display: flex;
   justify-content: space-between;
-  &__label {
-    color: $text-dark;
-    font-size: $font-size-normal;
-    font-weight: $font-weight-normal;
-  }
+
   &__container {
     display: flex;
     height: 36px;
@@ -19,15 +15,15 @@
     align-items: center;
     justify-content: space-between;
   }
+
   &__input {
     padding: $spacing-none;
     font-size: $font-size-normal;
     font-weight: $font-weight-normal;
     color: $text-second;
-    padding-bottom: $spacing-s;
     border: none;
     background-color: $white;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     text-align: right;
   }
 

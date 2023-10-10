@@ -1,0 +1,57 @@
+@import '/src/assets/styles/colors';
+@import '/src/assets/styles/common';
+@import '/src/assets/styles/mixins';
+
+.message {
+	@include font(12px, $font-weight-normal, $text-dark);
+
+	display: flex;
+	margin: 10px 0;
+	background: $background-light;
+	border-radius: 12px;
+	padding: 11px;
+	width: fit-content;
+	max-width: 402px;
+	flex-direction: row;
+	position: relative;
+
+	&__user-sender {
+		text-align: end;
+		border-bottom-right-radius: 0;
+		margin-right: 0;
+		margin-left: auto;
+		background-color: $blue-hover;
+	}
+
+	&__user-recipient {
+		text-align: start;
+		border-bottom-left-radius: 0;
+		margin-right: auto;
+		margin-left: 0;
+	}
+
+	&__content {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: wrap;
+		text-align: start;
+	}
+
+	&__meta-info {
+		gap: 4px;
+		float: right;
+		display: flex;
+		width: fill-available;
+		height: fit-content;
+        justify-content: flex-end;
+
+		@include font(9px, 500, $text-second);
+
+		&__checked {
+			@include font(9px, 500);
+		}
+	}
+}

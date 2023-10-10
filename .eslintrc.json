@@ -1,0 +1,70 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"import/extensions": [0, "never"],
+		"arrow-body-style": ["warn", "as-needed"],
+		"no-duplicate-imports": "error",
+		"no-nested-ternary": "off",
+		"no-use-before-define": "off",
+
+		"no-unused-vars": "off",
+		"no-undef": "off",
+		"no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+		"@typescript-eslint/no-use-before-define": ["error"],
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"args": "all",
+				"varsIgnorePattern": "^_",
+				"argsIgnorePattern": "^_",
+				"ignoreRestSiblings": false
+			}
+		],
+		"@typescript-eslint/array-type": ["error", { "default": "array-simple" }],
+		"@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+		"@typescript-eslint/no-non-null-assertion": "error",
+		"no-shadow": "off",
+		"@typescript-eslint/no-shadow": "off",
+		"@typescript-eslint/member-delimiter-style": [
+			"error",
+			{
+				"multiline": {
+					"delimiter": "semi",
+					"requireLast": true
+				},
+				"singleline": {
+					"delimiter": "semi",
+					"requireLast": false
+				},
+				"overrides": {
+					"interface": {
+						"multiline": {
+							"delimiter": "semi",
+							"requireLast": true
+						},
+						"singleline": {
+							"delimiter": "semi",
+							"requireLast": true
+						}
+					}
+				}
+			}
+		],
+		"import/no-extraneous-dependencies": "off",
+		"import/prefer-default-export": "off",
+		"import/no-named-as-default": "off",
+
+		"no-continue": "off",
+		"no-plusplus": ["off", { "allowForLoopAfterthoughts": true }],
+		"radix": "off",
+		"prefer-destructuring": ["error", { "object": true, "array": false }]
+	}
+}
