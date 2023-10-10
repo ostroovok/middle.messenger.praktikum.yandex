@@ -35,3 +35,7 @@ export const profileValidationScheme: { [key: string]: ValidationFieldScheme } =
 		nameValidation(value) ? '' : 'Должно начинаться с заглавной буквы',
 	phone: (value: string) => (phoneValidation(value) ? '' : 'Введен телефон неверного формата'),
 };
+
+export const isNoEmpty = (value?: string | null) => !!value && !!value.length;
+
+export const requiredField = (value?: string | null) => isNoEmpty(value) ? '' : 'Не может быть пустым'

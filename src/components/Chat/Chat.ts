@@ -1,5 +1,5 @@
 import Block from 'src/core/Block';
-import { logFormData } from 'src/shared/logFormData';
+import { logFormData } from 'src/shared/utils/logFormData';
 import { RefsType } from 'src/shared/types';
 import { default as ChatTemplate } from './Chat.hbs?raw';
 

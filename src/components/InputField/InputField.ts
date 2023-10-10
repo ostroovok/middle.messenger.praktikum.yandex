@@ -20,15 +20,12 @@ export class InputField extends Block {
 		});
 	}
 	public value() {
-		if (!this.validate()) {
-			return false;
-		}
 		return ((this.refs.input as InputField)?.element as HTMLInputElement).value;
 	}
 
 	private validate() {
 		const { showError } = this.props;
-		const {value} = (this.refs.input as InputField)?.element as HTMLInputElement;
+		const { value } = (this.refs.input as InputField)?.element as HTMLInputElement;
 		const errorText = (this.props as InputFieldProps).validate?.(value);
 		if (errorText) {
 			showError && this.refs.errorLine.setProps({ errorText });

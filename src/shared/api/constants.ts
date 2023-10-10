@@ -1,0 +1,1 @@
+export const ApiUrl = 'https://ya-praktikum.tech/api/v2';

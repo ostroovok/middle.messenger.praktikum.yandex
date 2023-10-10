@@ -167,6 +167,17 @@ class Block<T extends BlockProps = BlockProps> {
 		return temp.content;
 	}
 
+	private _componentWillUnmount() {
+		this.componentWillUnmount();
+		this._removeEvents();
+	}
+
+	protected componentWillUnmount() {}
+
+	unmount() {
+		// this._componentWillUnmount();
+	}
+
 	protected render(): string {
 		return '';
 	}

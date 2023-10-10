@@ -1,4 +1,4 @@
-import { RefsType } from './types';
+import { RefsType } from '../types';
 
 export const logFormData = (refs: RefsType, event: MouseEvent) => {
 	event.preventDefault();

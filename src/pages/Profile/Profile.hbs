@@ -1,6 +1,6 @@
 <div class="profile-page">
     {{#> Sider }}
-        {{{ IconButton navTo="chats" className="profile-page__back-button" icon="arrow-blue-icon"}}}
+        {{{ IconButton className="profile-page__back-button" onClick=goBack icon="arrow-blue-icon"}}}
     {{/Sider}}
     {{#> Layout direction="row"}}
         <div class="profile-page__container">
@@ -59,9 +59,9 @@
                 }}}
             </div>
             <div class="profile-page__actions">
-                {{{ Button label="Изменить данные" navTo="editProfile" className="profile-page__action-button"}}}
-                {{{ Button label="Изменить пароль" navTo="changePassword" className="profile-page__action-button"}}}
-                {{{ Button label="Выйти" navTo="login" className="profile-page__action-button profile-page__action-button__red"}}}
+                {{{ Button label="Изменить данные" onClick=onEditProfile className="profile-page__action-button"}}}
+                {{{ Button label="Изменить пароль" onClick=onChangePassword className="profile-page__action-button"}}}
+                {{{ Button label="Выйти" onClick=onLogout className="profile-page__action-button profile-page__action-button__red"}}}
             </div>
         </div>
     {{/Layout}}

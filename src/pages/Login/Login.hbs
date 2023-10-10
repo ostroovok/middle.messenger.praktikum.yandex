@@ -4,12 +4,13 @@
             <div>
                 {{{ InputField placeholder="example@yandex.ru" ref="login" name="login" label="Логин" validate=validate.login
                 }}}
-                {{{ InputField name="password" ref="password" name="password" label="Пароль" }}}
+                {{{ InputField name="password" ref="password" name="password" label="Пароль" validate=validate.password }}}
+                {{{ ErrorLine errorText=errorText ref="errorText" }}}
             </div>
             <div class="login-page__action-buttons">
-                {{{ Button label="Войти" type="primary" navTo="chats" onClick=onLogin className=""}}}
-                {{{ Button label="Нет аккаунта?" type="link" navTo="signUp" className=""}}}
-            </div> 
-        {{/Form}} 
+                {{{ Button label="Войти" type="primary" onClick=onLogin className=""}}}
+                {{{ Button label="Нет аккаунта?" type="link" onClick=onRegister className=""}}}
+            </div>
+        {{/Form}}
     {{/Layout}}
 </div>

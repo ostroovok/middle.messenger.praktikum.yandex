@@ -1,6 +1,6 @@
 <div class="edit-profile-page">
   {{#> Sider }}
-    {{{ IconButton navTo="profile" icon="arrow-blue-icon"
+    {{{ IconButton onClick=goBack icon="arrow-blue-icon"
     className="edit-profile-page__back-button"}}}
   {{/Sider}}
   {{#> Layout className="edit-profile-page__container"}}
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="edit-profile-page__actions">
-      {{{ Button label="Сохранить" navTo="profile" type="primary" className="edit-profile-page__action-button"
+      {{{ Button label="Сохранить" type="primary" className="edit-profile-page__action-button"
       onClick=onSubmit}}}
     </div>
     {{/Form}}
