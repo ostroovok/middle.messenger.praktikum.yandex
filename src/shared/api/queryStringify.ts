@@ -1,6 +1,4 @@
-type PlainObject<T = unknown> = {
-	[k in string]: T;
-};
+import { PlainObject } from "./types";
 
 const isPlainObject = (value: unknown): value is PlainObject =>
 	typeof value === 'object' &&
@@ -29,7 +27,7 @@ const getParams = (data: PlainObject | [], parentKey?: string) => {
 	return result;
 };
 
-export const queryString = (data: PlainObject) => {
+export const queryStringify = (data: object) => {
 	if (!isPlainObject(data)) {
 		throw new Error('input must be an object');
 	}

@@ -3,9 +3,10 @@ import { RefsType } from 'src/shared/types';
 import { default as LoginTemplate } from './Login.hbs?raw';
 import { Router } from 'src/core/Router/Router';
 import { Routes } from 'src/shared/navigation/routes';
-import { isNoEmpty, requiredField } from 'src/shared/validation';
+import { requiredField } from 'src/shared/validation';
 import { login } from 'src/services/AuthService';
 import { parseRequestError } from 'src/shared/api/parseRequestError';
+import { checkFields } from 'src/shared/utils/formUtils';
 
 export class Login extends Block {
 	private __router: Router;
@@ -20,8 +21,11 @@ export class Login extends Block {
 				if (!this.validateFields()) {
 					return;
 				}
-				const { login: loginField, password: passwordField } = this.getFields();
-				login({ login: loginField, password: passwordField }).catch(err => {
+				const fields = this.getFields();
+				login({
+					login: fields.login.toString(),
+					password: fields.password.toString(),
+				}).catch(err => {
 					const errorText = parseRequestError(err);
 					this.refs.errorText.setProps({ errorText });
 				});
@@ -43,8 +47,8 @@ export class Login extends Block {
 	}
 
 	private validateFields() {
-		const { login, password } = this.getFields();
-		return isNoEmpty(login) && isNoEmpty(password);
+		const fields = this.getFields();
+		return checkFields(fields);
 	}
 
 	protected render(): string {

@@ -1,37 +1,6 @@
-import { ApiUrl } from './constants';
-
-export enum METHODS {
-	GET = 'GET',
-	POST = 'POST',
-	PUT = 'PUT',
-	DELETE = 'DELETE',
-}
-
-type HeadersType = Record<string, string>;
-
-type RequestDataType = Record<string, unknown>;
-
-type HttpRequestOptions = {
-	method?: METHODS;
-	headers?: HeadersType;
-	data?: RequestDataType;
-	timeout?: number;
-};
-
-const DEFAULT_TIMEOUT = 5000;
-
-
-function queryStringify(data: RequestDataType) {
-	if (typeof data !== 'object') {
-		throw new Error('Data must be object');
-	}
-
-	const keys = Object.keys(data);
-	return keys.reduce(
-		(result, key, index) => `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`,
-		'?',
-	);
-}
+import { ApiUrl, DEFAULT_TIMEOUT, METHODS, OK_STATUS_KEY, OK_STATUS_NUMBER } from './constants';
+import { queryStringify } from './queryStringify';
+import { HttpRequestOptions } from './types';
 
 export class HttpTransport {
 	private __requestUrl: string = '';
@@ -52,7 +21,11 @@ export class HttpTransport {
 	delete = <TResponse>(url: string, options?: HttpRequestOptions) =>
 		this.request<TResponse>(url, { ...options, method: METHODS.DELETE }, options?.timeout);
 
-	request = <TResponse = unknown>(uri: string, options: HttpRequestOptions, timeout = 5000) => {
+	request = <TResponse = unknown>(
+		uri: string,
+		options: HttpRequestOptions,
+		timeout = DEFAULT_TIMEOUT,
+	) => {
 		const { headers = {}, method, data } = options;
 
 		return new Promise<TResponse>((resolve, reject) => {
@@ -77,22 +50,22 @@ export class HttpTransport {
 				});
 			}
 
-			xhr.onload = function () {
-				if (xhr.status !== 200) {
-					reject(xhr.responseText);
-				}
-				if (xhr.response === 'OK') {
-					resolve(xhr.response as TResponse);
-				} else {
-					resolve(JSON.parse(xhr.response) as TResponse);
-				}
-			};
-
 			xhr.onabort = reject;
 			xhr.onerror = reject;
 			xhr.timeout = timeout;
 			xhr.ontimeout = reject;
 			xhr.withCredentials = true;
+
+			xhr.onload = function () {
+				if (xhr.status !== OK_STATUS_NUMBER) {
+					reject(xhr.responseText);
+				}
+				if (xhr.response === OK_STATUS_KEY) {
+					resolve(xhr.response as TResponse);
+				} else {
+					resolve(JSON.parse(xhr.response) as TResponse);
+				}
+			};
 
 			if (isGetMethodType || !data) {
 				xhr.send();

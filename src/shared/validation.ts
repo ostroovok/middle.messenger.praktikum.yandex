@@ -1,4 +1,5 @@
 import { ValidationCallback, ValidationFieldScheme } from './types';
+import { isNoEmpty } from './utils/formUtils';
 
 const testForRegExp = (value: string, regexpPattern: RegExp) => {
 	const regexp = new RegExp(regexpPattern);
@@ -20,6 +21,9 @@ export const nameValidation: ValidationCallback = (value: string) =>
 export const phoneValidation: ValidationCallback = (value: string) =>
 	testForRegExp(value, /^(\+)?\d{10,15}$/);
 
+export const secondPasswordValidation = (fvalue: string, svalue: string) =>
+	fvalue === svalue ? '' : 'Пароли не совпадают';
+
 export const profileValidationScheme: { [key: string]: ValidationFieldScheme } = {
 	login: (value: string) =>
 		loginValidation(value)
@@ -36,6 +40,5 @@ export const profileValidationScheme: { [key: string]: ValidationFieldScheme } =
 	phone: (value: string) => (phoneValidation(value) ? '' : 'Введен телефон неверного формата'),
 };
 
-export const isNoEmpty = (value?: string | null) => !!value && !!value.length;
-
-export const requiredField = (value?: string | null) => isNoEmpty(value) ? '' : 'Не может быть пустым'
+export const requiredField = (value?: string | null) =>
+	isNoEmpty(value) ? '' : 'Не может быть пустым';

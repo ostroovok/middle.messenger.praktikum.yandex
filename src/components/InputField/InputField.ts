@@ -20,6 +20,9 @@ export class InputField extends Block {
 		});
 	}
 	public value() {
+		if (!this.validate()) {
+			return false;
+		}
 		return ((this.refs.input as InputField)?.element as HTMLInputElement).value;
 	}
 
