@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 
 export type BlockProps = Record<string, unknown | Block<BlockProps>> & {
-	events?: Record<string, () => void>;
+	events?: Record<string, (event?: Event) => void>;
 } & object;
 
 type RootChildren = {
@@ -175,7 +175,7 @@ class Block<T extends BlockProps = BlockProps> {
 	protected componentWillUnmount() {}
 
 	unmount() {
-		// this._componentWillUnmount();
+		this._componentWillUnmount();
 	}
 
 	protected render(): string {

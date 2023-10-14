@@ -6,7 +6,7 @@ import { Routes } from 'src/shared/navigation/routes';
 import { Router } from 'src/core/Router/Router';
 import { checkFields } from 'src/shared/utils/formUtils';
 import { signup } from 'src/services/AuthService';
-import { parseRequestError } from 'src/shared/api/parseRequestError';
+import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
 
 export class SignUp extends Block {
 	private __router: Router;

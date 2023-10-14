@@ -1,0 +1,11 @@
+<div>
+	{{#each chats}}
+		{{{ContactCard
+			avatarUrl=this.avatar
+			contactName=this.title
+			lastMessagePreview=this.last_message.content
+			lastMessagetime=this.last_message.time
+			unreadMessages=this.unread_count
+		}}}
+	{{/each}}
+</div>

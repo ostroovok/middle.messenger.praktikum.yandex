@@ -1,6 +1,7 @@
 import { Router } from 'src/core/Router/Router';
 import { AuthApi } from 'src/shared/api/AuthApi';
-import { LoginDto, RegisterUserDto } from 'src/shared/api/models';
+import { LoginSubmitData, SignupUserSubmitData, SignupUserResponseData } from 'src/shared/models/AuthModels';
+import { User } from 'src/shared/models/UserModels';
 import { Routes } from 'src/shared/navigation/routes';
 
 const authApi = new AuthApi();
@@ -11,19 +12,31 @@ export const getCurrentUser = async () => {
 	return currentUser;
 };
 
-export const login = async (data: LoginDto) => {
+export const login = async (data: LoginSubmitData) => {
 	await authApi.login(data);
 	const currentUser = await getCurrentUser();
-	// window.store?.set({
-	//     currentUser
-	// });
+	if (!currentUser) return;
+	window.store.set({
+		user: currentUser as User,
+	});
 	router.go(Routes.Chats);
 };
 
-export const signup = async (data: RegisterUserDto) => {
+export const signup = async (data: SignupUserSubmitData) => {
 	const userId = await authApi.signup(data);
 	if (userId) {
-		// TODO: store
+		window.store.set({
+			user: {
+				avatar: '',
+				display_name: '',
+				email: data.email,
+				first_name: data.first_name,
+				id: (userId as SignupUserResponseData).id,
+				login: data.login,
+				phone: data.phone,
+				second_name: data.second_name,
+			},
+		});
 		router.go(Routes.Chats);
 	}
 };

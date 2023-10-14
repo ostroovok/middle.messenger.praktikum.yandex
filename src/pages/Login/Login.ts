@@ -5,7 +5,7 @@ import { Router } from 'src/core/Router/Router';
 import { Routes } from 'src/shared/navigation/routes';
 import { requiredField } from 'src/shared/validation';
 import { login } from 'src/services/AuthService';
-import { parseRequestError } from 'src/shared/api/parseRequestError';
+import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
 import { checkFields } from 'src/shared/utils/formUtils';
 
 export class Login extends Block {

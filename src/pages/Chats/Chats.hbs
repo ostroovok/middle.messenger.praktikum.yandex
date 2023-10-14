@@ -10,36 +10,7 @@
             <div class="chats-page__search-container">
                 {{{ Input placeholder="Поиск" ref="search" inputClassName="chats-page__search" }}}
             </div>
-            {{#> ContactList }}
-            {{{ ContactCard
-                avatarUrl="/assets/images/unknown-image.svg"
-                contactName="Андрей"
-                lastMessagePreview="Друзья, у меня для вас особенный выпуск новостей!Друзья, у меня для вас особенный выпуск
-                новостей!Друзья, у меня для вас особенный выпуск новостей!Друзья, у меня для вас особенный выпуск новостей!"
-                lastMessagetime="10:49"
-                unreadMessages="2"
-            }}}
-            {{{ ContactCard
-                avatarUrl="/assets/images/unknown-image.svg"
-                contactName="Канал со спамом"
-                lastMessagePreview="Изображение"
-                lastMessagetime="02:33"
-                unreadMessages="10"
-            }}}
-            {{{ ContactCard
-                avatarUrl="/assets/images/unknown-image.svg"
-                contactName="Иван"
-                lastMessagePreview="..."
-                lastMessagetime="Пт"
-                unreadMessages=""
-                sendByUser="true"
-            }}}
-
-            <div>
-                {{{ Button label="Страница 404" type="link" navTo="notFound" className="" }}}
-                {{{ Button label="Страница 5**" type="link" navTo="serverError" className="" }}}
-            </div>
-            {{/ContactList}}    
+            {{{ ContactList chats=chatsList }}}
         {{/Sider}}
         {{#> Layout className="chats-page__messages-window"}}
             {{{ Chat }}}

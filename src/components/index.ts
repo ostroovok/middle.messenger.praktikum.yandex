@@ -8,3 +8,4 @@ export { ErrorLine } from './ErrorLine';
 export { Chat } from './Chat';
 export { Plug } from './Plug';
 export { Message } from './Message';
+export { ContactList } from './ContactList';
