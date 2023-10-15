@@ -1,7 +1,11 @@
 import { Router } from 'src/core/Router/Router';
 import { Routes } from 'src/shared/navigation/routes';
 import { ChatsApi } from 'src/shared/api/ChatsApi';
-import { ChatsList } from 'src/shared/models/ChatModels';
+import {
+	ChatsList,
+	CreateChatResponseData,
+	CreateChatSubmitData,
+} from 'src/shared/models/ChatModels';
 
 const chatsApi = new ChatsApi();
 const router = new Router();
@@ -13,4 +17,12 @@ export const getChats = async () => {
 		chats: chats as ChatsList,
 	});
 	return chats;
+};
+
+export const createChat = async (data: CreateChatSubmitData) => {
+	const newChatId = await chatsApi.createChat(data);
+	if (newChatId) {
+		getChats();
+	}
+	return (newChatId as CreateChatResponseData).id;
 };

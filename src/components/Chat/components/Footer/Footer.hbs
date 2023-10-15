@@ -1,0 +1,19 @@
+<div class='footer'>
+	<div class='footer__attachment'>
+		{{{IconButton icon='attachment-icon' type='primary' className='footer__button'}}}
+	</div>
+	{{{InputField
+		ref='message'
+		name='message'
+		placeholder='Сообщение'
+		inputClassName='footer__message'
+		labelClassName='footer__message-container'
+		label=''
+		overlayClassName='footer__message-overlay'
+		validate=validate.message
+		showError=false
+	}}}
+	<div class='footer__attachment'>
+		{{{IconButton icon='send-icon' type='primary' onClick=onSend className='footer__button'}}}
+	</div>
+</div>

@@ -1,0 +1,49 @@
+@import '/src/assets/styles/colors';
+@import '/src/assets/styles/common';
+@import '/src/assets/styles/mixins';
+
+.chat-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-height: 54px;
+	border-bottom: 1px solid #eaeaea;
+	width: 100%;
+	gap: 10px;
+	flex-grow: 1;
+	padding: 10px 20px;
+
+	&__user-meta {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__user-icon {
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		background: $input-background-grey;
+	}
+
+	&__user-name {
+		@include font(13px, $font-weight-bold, $text-dark);
+	}
+
+	&__actions {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 24px;
+		height: 24px;
+	}
+
+	&__button {
+		&:hover {
+			cursor: pointer;
+			background: inherit !important;
+		}
+	}
+}

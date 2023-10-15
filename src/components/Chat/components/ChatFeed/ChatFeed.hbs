@@ -1,0 +1,9 @@
+<div class='chat-feed__content'>
+	{{#if isMessagesExist}}
+		{{#each messages}}
+			{{{Message time=this.time userId=this.userId text=this.content}}}
+		{{/each}}
+	{{else}}
+		{{{Plug text='Сообщений пока нет, напишите первым! :)' className='chat__plug'}}}
+	{{/if}}
+</div>

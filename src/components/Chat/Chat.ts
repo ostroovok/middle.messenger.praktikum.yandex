@@ -2,10 +2,18 @@ import Block from 'src/core/Block';
 import { logFormData } from 'src/shared/utils/logFormData';
 import { RefsType } from 'src/shared/types';
 import { default as ChatTemplate } from './Chat.hbs?raw';
+import { connect, createStore } from 'src/store/utils';
+import { ChatType } from 'src/shared/models/ChatModels';
 
-export class Chat extends Block {
-	constructor() {
+type ChatProps = {
+	selectedChat: ChatType;
+};
+
+class _Chat extends Block {
+	constructor(props: ChatProps) {
+		createStore();
 		super({
+			...props,
 			validate: {
 				message: (value: string) => value.length === 0,
 			},
@@ -17,3 +25,7 @@ export class Chat extends Block {
 		return ChatTemplate;
 	}
 }
+
+export const Chat = connect(state => ({
+	selectedChat: state.selectedChat,
+}))(_Chat as typeof Block);

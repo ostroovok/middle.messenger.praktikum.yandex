@@ -1,0 +1,19 @@
+{{#> Modal show=isOpenDialogChat}}
+    <div class="add-chat-modal__container">
+        {{#> Form overlayClassName="add-chat-modal__content" title="Добавление чата"}}
+            {{{InputField 
+                ref="title"
+                name="title"
+                type="text"
+                className=""
+                placeholder="Введите название"
+                validate=validate.title
+            }}}
+            {{{ ErrorLine errorText=errorText ref="errorText" }}}
+        {{/Form}}
+        <div class="add-chat-modal__actions">
+            {{{Button label="Добавить" type="primary" onClick=onOk className="" }}}
+            {{{Button label="Отмена" type="link" onClick=onCancel className="" }}}
+        </div>
+    </div>
+{{/Modal}}

@@ -18,6 +18,7 @@ declare global {
 Handlebars.registerPartial('Form', Partials.Form);
 Handlebars.registerPartial('Layout', Partials.Layout);
 Handlebars.registerPartial('Sider', Partials.Sider);
+Handlebars.registerPartial('Modal', Partials.Modal);
 
 Object.entries(Components).forEach(([key, source]) => {
 	registerComponent(key, source as typeof Block);

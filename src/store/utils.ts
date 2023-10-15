@@ -9,7 +9,9 @@ export const createStore = () => {
 		error: null,
 		user: null,
 		isOpenDialogChat: false,
+		isChatPopoverOpened: false,
 		chats: [],
+		messages: [],
 	};
 
 	window.store = new Store<State>(initState);
@@ -41,7 +43,6 @@ export const connect = (mapStateToProps: (state: State) => Partial<State>) => {
 
 					// не забываем сохранить новое состояние
 					state = newState;
-					console.log(state);
 				};
 
 				// подписываемся на событие
