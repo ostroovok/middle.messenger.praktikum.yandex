@@ -1,10 +1,11 @@
 export type ChatUser = {
+	id: number;
 	first_name: string;
 	second_name: string;
 	avatar: string;
 	email: string;
 	login: string;
-	phone: string;
+	role: string;
 };
 
 export type ChatType = {
@@ -14,7 +15,14 @@ export type ChatType = {
 	unread_count: number;
 	created_by: number;
 	last_message: {
-		user: ChatUser;
+		user: {
+			first_name: string;
+			second_name: string;
+			avatar: string;
+			email: string;
+			login: string;
+			phone: string;
+		};
 		time: string;
 		content: string;
 	};
@@ -32,6 +40,16 @@ export type CreateChatResponseData = {
 export type DeleteChatSubmitData = {
 	chatId: number;
 };
+
+export type GetChatUsersRequest = {
+	chatId: number;
+	offset?: number;
+	limit?: number;
+	name?: string;
+	email?: string;
+};
+export type GetChatUsersResponse = ChatUser[];
+
 export type DeleteChatResponseData = {
 	userId: number;
 	result: {

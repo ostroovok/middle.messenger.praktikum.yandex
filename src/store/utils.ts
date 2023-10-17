@@ -3,22 +3,31 @@ import Block from '../core/Block';
 import { Store, StoreEvents } from './store';
 import { State } from './types';
 
-export const createStore = () => {
-	if (window.store) return;
-	const initState: State = {
-		error: null,
-		user: null,
-		isOpenDialogChat: false,
-		isChatPopoverOpened: false,
-		chats: [],
-		messages: [],
-	};
+const defaultState: State = {
+	error: null,
+	user: null,
+	isOpenDialogAddChat: false,
+	isChatPopoverOpened: false,
+	isOpenDialogAddUserToChat: false,
+	isOpenDialogRemoveUserFromChat: false,
+	activeChatUsers: [],
+	chats: [],
+	messages: [],
+};
 
-	window.store = new Store<State>(initState);
+export const initStore = () => {
+	if (window.store) return;
+
+	window.store = new Store<State>(defaultState);
+};
+
+export const resetStoreState = () => {
+	if (!window.store) return;
+	window.store.set(defaultState);
 };
 
 export const connect = (mapStateToProps: (state: State) => Partial<State>) => {
-	if (!window.store) createStore();
+	if (!window.store) initStore();
 	return function <P extends object>(Component: typeof Block) {
 		return class extends Component {
 			private onChangeStoreCallback: () => void;

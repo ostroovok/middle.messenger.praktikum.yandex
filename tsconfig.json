@@ -34,7 +34,7 @@
 	},
 	"include": [
 	  "src/**/*.ts"
-	],
+, "src/core/Router/utils"	],
 	"exclude": [
 	  "node_modules",
 	  ".vscode"

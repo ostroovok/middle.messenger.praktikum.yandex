@@ -1,5 +1,3 @@
-<div class='chat-popover'>
-	<div class='chat-popover__content' {{#if isChatPopoverOpened}}{{else}}style="display: none"{{/if}}>
-		123
-	</div>
-</div>
+{{#> Modal show=isChatPopoverOpened onClick=onCancel className='chat-popover__content' backgroundClassName="chat-popover__background" overlayClassName="chat-popover__overlay"}}
+	{{{ChatActions}}}
+{{/Modal}}

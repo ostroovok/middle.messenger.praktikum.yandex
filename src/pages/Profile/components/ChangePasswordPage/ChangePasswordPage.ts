@@ -8,6 +8,7 @@ import { checkFields } from 'src/shared/utils/formUtils';
 import { changeUserPassword } from 'src/services/UserService';
 import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
 import { UserPasswordSubmitData } from 'src/shared/models/UserModels';
+import { InputField } from 'src/components';
 
 export class ChangePasswordPage extends Block {
 	private __router: Router;
@@ -35,7 +36,7 @@ export class ChangePasswordPage extends Block {
 	}
 
 	private getFields() {
-		const refs = this.refs as RefsType;
+		const refs = this.refs as RefsType<InputField>;
 		return {
 			newPassword: refs.newPassword.value(),
 			oldPassword: refs.oldPassword.value(),

@@ -1,9 +1,28 @@
-@import "/src/assets/styles/colors";
-@import "/src/assets/styles/common";
+@import '/src/assets/styles/colors';
+@import '/src/assets/styles/common';
 
-@mixin font($size: $font-size-normal, $weight: $font-weight-normal, $color: $main-blue, $family: "Inter") {
-    color: $color;
-    font-size: $size;
-    font-weight: $weight;
-    font-family: $family;
+@mixin font(
+	$size: $font-size-normal,
+	$weight: $font-weight-normal,
+	$color: $main-blue,
+	$family: 'Inter'
+) {
+	color: $color;
+	font-size: $size;
+	font-weight: $weight;
+	font-family: $family;
+}
+
+@mixin list-button {
+	justify-content: flex-start;
+	border-radius: 2px;
+
+	& span {
+		padding: 0px 4px;
+	}
+
+	&:hover {
+		background: $blue-hover;
+		cursor: pointer;
+	}
 }

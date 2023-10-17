@@ -9,3 +9,8 @@ export * from './Chat';
 export { Plug } from './Plug';
 export { ContactList } from './ContactList';
 export { AddChatModal } from './AddChatModal';
+export { AddUserModal } from './AddUserModal';
+export * from './DeleteUserModal';
+export { ModalBackground } from './ModalBackground';
+export { SelectField } from './SelectField';
+export { Select } from './Select';

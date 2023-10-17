@@ -10,6 +10,11 @@ export class ChatHeader extends Block {
 	constructor(props: ChatHeaderProps) {
 		super({
 			...props,
+			onActionsClick: () => {
+				window.store.set({
+					isChatPopoverOpened: true,
+				});
+			},
 		});
 	}
 

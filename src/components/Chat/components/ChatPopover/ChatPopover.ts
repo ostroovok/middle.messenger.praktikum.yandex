@@ -8,14 +8,14 @@ type ChatPopoverProps = {
 
 class _ChatPopover extends Block {
 	constructor(props: ChatPopoverProps) {
-		super(props);
-		this.props.events = {
-			click: () => {
-				this.setProps({
-					isChatPopoverOpened: true,
+		super({
+			...props,
+			onCancel: () => {
+				window.store.set({
+					isChatPopoverOpened: false,
 				});
 			},
-		};
+		});
 	}
 
 	protected render() {

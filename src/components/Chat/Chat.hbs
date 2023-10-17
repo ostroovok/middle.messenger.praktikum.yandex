@@ -1,6 +1,6 @@
 <div class='chat'>
-	{{#if selectedChat}}
-		{{{ChatHeader title=selectedChat.title avatar=selectedChat.avatar}}}
+	{{#if activeChat}}
+		{{{ChatHeader title=activeChat.title avatar=activeChat.avatar}}}
 		{{{ChatFeed}}}
 		{{{ChatFooter}}}
 	{{else}}

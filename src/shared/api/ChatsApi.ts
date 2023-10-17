@@ -9,6 +9,8 @@ import {
 	DeleteChatSubmitData,
 	GetChatTokenRequest,
 	GetChatTokenResponseData,
+	GetChatUsersRequest,
+	GetChatUsersResponse,
 } from '../models/ChatModels';
 import { HttpTransport } from './utils/HttpTransoprt';
 
@@ -30,21 +32,30 @@ export class ChatsApi {
 		});
 	}
 	async getChatToken(data: GetChatTokenRequest): Promise<GetChatTokenResponseData | Error> {
-		return api.post('token', {
+		return api.post('/token', {
 			data,
 		});
 	}
 	async changeChatAvatar(
 		data: ChangeChatAvatarSubmitData,
 	): Promise<ChangeChatAvatarResponseData | Error> {
-		return api.put('avatar', {
+		return api.put('/avatar', {
 			data,
 		});
 	}
 	async addUsersToChat(data: AddUsersToChatSubmitData): Promise<void | Error> {
-		return api.put('users', { data });
+		return api.put('/users', { data, headers: { 'Content-Type': 'application/json' } });
 	}
 	async removeUsersFromChat(data: AddUsersToChatSubmitData): Promise<void | Error> {
-		return api.delete('users', { data });
+		return api.delete('/users', { data, headers: { 'Content-Type': 'application/json' } });
+	}
+	async getChatUsers(data: GetChatUsersRequest): Promise<GetChatUsersResponse | Error> {
+		const queryData: Omit<GetChatUsersRequest, 'chatId'> = {
+			email: data.email,
+			limit: data.limit,
+			name: data.name,
+			offset: data.offset,
+		};
+		return api.get(`/${data.chatId}/users`, { data: queryData });
 	}
 }

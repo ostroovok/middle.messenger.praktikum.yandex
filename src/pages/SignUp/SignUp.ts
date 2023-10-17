@@ -7,6 +7,7 @@ import { Router } from 'src/core/Router/Router';
 import { checkFields } from 'src/shared/utils/formUtils';
 import { signup } from 'src/services/AuthService';
 import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
+import { InputField } from 'src/components';
 
 export class SignUp extends Block {
 	private __router: Router;
@@ -15,7 +16,7 @@ export class SignUp extends Block {
 			validate: {
 				...profileValidationScheme,
 				secondPassword: (value: string) => {
-					const secondValue = (this.refs as RefsType).password.value();
+					const secondValue = (this.refs as RefsType<InputField>).password.value();
 					if (checkFields({ secondValue: secondValue })) {
 						return secondPasswordValidation(value, String(secondValue));
 					}
@@ -47,7 +48,7 @@ export class SignUp extends Block {
 	}
 
 	private getFields() {
-		const refs = this.refs as RefsType;
+		const refs = this.refs as RefsType<InputField>;
 		return {
 			email: refs.email.value(),
 			login: refs.login.value(),

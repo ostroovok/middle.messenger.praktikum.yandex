@@ -1,12 +1,15 @@
-import { ChatType, ChatsList } from 'src/shared/models/ChatModels';
+import { ChatType, ChatUser, ChatsList } from 'src/shared/models/ChatModels';
 import { User } from 'src/shared/models/UserModels';
 
 export type State = {
 	error: string | null;
 	user: User | null;
-	isOpenDialogChat: boolean;
+	isOpenDialogAddChat: boolean;
+	isOpenDialogAddUserToChat: boolean;
 	isChatPopoverOpened: boolean;
+	isOpenDialogRemoveUserFromChat: boolean;
 	chats: ChatsList;
-	selectedChat?: ChatType;
+	activeChat?: ChatType;
+	activeChatUsers: ChatUser[];
 	messages: unknown[];
 };

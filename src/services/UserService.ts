@@ -20,6 +20,8 @@ export const changeUserPassword = async (data: UserPasswordSubmitData) => {
 };
 
 export const changeUserAvatar = async (data: File) => {
-	const newUserData = await userApi.changeAvatar(data);
-	// TODO: set in store
+	await userApi.changeAvatar(data);
 };
+
+export const getUsersByLogin = async (data: string) =>
+	await userApi.getUsersByLogin({ login: data });

@@ -7,7 +7,7 @@ import { registerComponent } from './core/resgiterComponent';
 import { registerRoutes } from './shared/navigation/registerRoutes';
 import { State } from './store/types';
 import { Store } from './store/store';
-import { createStore } from './store/utils';
+import { initStore } from './store/utils';
 
 declare global {
 	interface Window {
@@ -25,4 +25,4 @@ Object.entries(Components).forEach(([key, source]) => {
 });
 
 registerRoutes();
-createStore();
+initStore();

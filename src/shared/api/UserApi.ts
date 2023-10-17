@@ -20,4 +20,8 @@ export class UserApi {
 		data.append('avatar', file);
 		return userApi.put('/profile/avatar', { data });
 	}
+
+	async getUsersByLogin(data: { login: string }): Promise<User[] | Error> {
+		return userApi.post('/search', { headers: { 'Content-Type': 'application/json' }, data });
+	}
 }

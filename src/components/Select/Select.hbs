@@ -1,0 +1,8 @@
+<select class='select__content' ref='select'>
+	<option disabled selected>{{placeholder}}</option>
+	{{#each options}}
+		<option value='{{this.id}}'>
+			<span>{{this.label}}</span>
+		</option>
+	{{/each}}
+</select>

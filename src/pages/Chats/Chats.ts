@@ -16,7 +16,7 @@ export class Chats extends Block {
 			...props,
 			createChat: () => {
 				window.store.set({
-					isOpenDialogChat: true,
+					isOpenDialogAddChat: true,
 				});
 			},
 			openProfile: (_: MouseEvent) => {

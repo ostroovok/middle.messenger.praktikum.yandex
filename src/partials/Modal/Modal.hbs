@@ -1,5 +1,8 @@
-<div {{#if show}}{{else}}style="display: none"{{/if}} class="modal__container">
+<div {{#if show}}{{else}}style="display: none"{{/if}} class="modal__container {{overlayClassName}}">
+    {{{ ModalBackground onClick=onClick className=backgroundClassName }}}
     {{#if show}}
-        {{> @partial-block }}
+        <div class="modal__content {{className}}">
+            {{> @partial-block }}
+        </div>
     {{/if}}
 </div>

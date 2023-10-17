@@ -9,6 +9,7 @@ import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
 import { Routes } from 'src/shared/navigation/routes';
 import { User } from 'src/shared/models/UserModels';
 import { connect } from 'src/store/utils';
+import { InputField } from 'src/components';
 
 type EditProfilePageProps = {
 	user: User;
@@ -39,7 +40,7 @@ class _EditProfilePage extends Block {
 	}
 
 	private getFields() {
-		const refs = this.refs as RefsType;
+		const refs = this.refs as RefsType<InputField>;
 		return {
 			email: refs.email.value(),
 			login: refs.login.value(),

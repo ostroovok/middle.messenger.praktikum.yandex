@@ -1,5 +1,7 @@
+import { Routes } from 'src/shared/navigation/routes';
 import Block, { BlockProps } from '../Block';
 import { Route } from './Route';
+import { checkPermissionsToRedirect } from './utils/checkPermissionsToRedirect';
 
 export class Router {
 	public static __instance: Router | null = null;
@@ -32,13 +34,22 @@ export class Router {
 	}
 
 	_onRoute(pathname: string) {
-		const route = this.getRoute(pathname);
-		if (route !== this._currentRoute && this._currentRoute && this._currentRoute.leave) {
-			this._currentRoute.leave();
-		}
+		checkPermissionsToRedirect(pathname)
+			.then(newPath => {
+				if (pathname !== newPath) {
+					this.history?.pushState({}, '', pathname);
+				}
+				const route = this.getRoute(newPath);
+				if (route !== this._currentRoute && this._currentRoute && this._currentRoute.leave) {
+					this._currentRoute.leave();
+				}
 
-		this._currentRoute = route ?? null;
-		route?.render();
+				this._currentRoute = route ?? null;
+				route?.render();
+			})
+			.catch(() => {
+				this.history?.back();
+			});
 	}
 
 	go(pathname: string) {
@@ -57,7 +68,7 @@ export class Router {
 	getRoute(pathname: string) {
 		return (
 			this.routes.find(route => route.match(pathname)) ??
-			this.routes.find(route => route.match('/not-found'))
+			this.routes.find(route => route.match(Routes.Error404))
 		);
 	}
 }

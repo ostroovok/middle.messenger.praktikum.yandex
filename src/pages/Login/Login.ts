@@ -7,6 +7,7 @@ import { requiredField } from 'src/shared/validation';
 import { login } from 'src/services/AuthService';
 import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
 import { checkFields } from 'src/shared/utils/formUtils';
+import { InputField } from 'src/components';
 
 export class Login extends Block {
 	private __router: Router;
@@ -39,7 +40,7 @@ export class Login extends Block {
 	}
 
 	private getFields() {
-		const refs = this.refs as RefsType;
+		const refs = this.refs as RefsType<InputField>;
 		return {
 			login: refs.login.value(),
 			password: refs.password.value(),

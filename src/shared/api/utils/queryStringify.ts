@@ -1,4 +1,4 @@
-import { PlainObject } from "./types";
+import { PlainObject } from './types';
 
 const isPlainObject = (value: unknown): value is PlainObject =>
 	typeof value === 'object' &&
@@ -19,7 +19,7 @@ const getParams = (data: PlainObject | [], parentKey?: string) => {
 	for (const [key, value] of Object.entries(data)) {
 		if (isArrayOrObject(value)) {
 			result.push(...getParams(value, getKey(key, parentKey)));
-		} else {
+		} else if (value) {
 			result.push([getKey(key, parentKey), encodeURIComponent(String(value))]);
 		}
 	}
@@ -32,7 +32,9 @@ export const queryStringify = (data: object) => {
 		throw new Error('input must be an object');
 	}
 
-	return getParams(data)
+	const queryString = getParams(data)
 		.map(arr => arr.join('='))
 		.join('&');
+
+	return `?${queryString}`;
 };

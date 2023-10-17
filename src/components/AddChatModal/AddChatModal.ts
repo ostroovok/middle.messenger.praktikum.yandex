@@ -6,6 +6,7 @@ import { createChat } from 'src/services/ChatsService';
 import { RefsType } from 'src/shared/types';
 import { checkFields } from 'src/shared/utils/formUtils';
 import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
+import { InputField } from '..';
 
 type AddChatModalProps = {
 	isOpenDialogChat: boolean;
@@ -33,19 +34,19 @@ class _AddChatModal extends Block {
 					this.refs.errorText.setProps({ errorText });
 				});
 				window.store.set({
-					isOpenDialogChat: false,
+					isOpenDialogAddChat: false,
 				});
 			},
 			onCancel: () => {
 				window.store.set({
-					isOpenDialogChat: false,
+					isOpenDialogAddChat: false,
 				});
 			},
 		});
 	}
 
 	private getFields() {
-		const refs = this.refs as RefsType;
+		const refs = this.refs as RefsType<InputField>;
 		return {
 			title: refs.title.value(),
 		};
@@ -61,6 +62,6 @@ class _AddChatModal extends Block {
 	}
 }
 
-export const AddChatModal = connect(state => ({ isOpenDialogChat: state.isOpenDialogChat }))(
+export const AddChatModal = connect(state => ({ isOpenDialogAddChat: state.isOpenDialogAddChat }))(
 	_AddChatModal as typeof Block,
 );
