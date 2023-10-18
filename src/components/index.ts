@@ -14,3 +14,5 @@ export * from './DeleteUserModal';
 export { ModalBackground } from './ModalBackground';
 export { SelectField } from './SelectField';
 export { Select } from './Select';
+export { ChangeChatAvatarModal } from './ChangeChatAvatarModal';
+export { DeleteChatModal } from './DeleteChatModal';

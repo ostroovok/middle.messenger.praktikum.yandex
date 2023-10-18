@@ -1,16 +1,19 @@
-import { Router } from 'src/core/Router/Router';
 import { ChatsApi } from 'src/shared/api/ChatsApi';
 import {
+	ChangeChatAvatarResponseData,
+	ChangeChatAvatarSubmitData,
 	ChatsList,
 	CreateChatResponseData,
 	CreateChatSubmitData,
+	DeleteChatResponseData,
+	DeleteChatSubmitData,
 	GetChatUsersRequest,
+	GetChatUsersResponse,
 } from 'src/shared/models/ChatModels';
 import { getUsersByLogin } from './UserService';
 import { User } from 'src/shared/models/UserModels';
 
 const chatsApi = new ChatsApi();
-const router = new Router();
 
 export const getChats = async () => {
 	const chats = await chatsApi.getChats();
@@ -41,4 +44,14 @@ export const deleteUserFromChat = async (data: { users: number[]; chatId: number
 	await chatsApi.removeUsersFromChat({ chatId: data.chatId, users: data.users });
 };
 
-export const getChatUsers = async (data: GetChatUsersRequest) => await chatsApi.getChatUsers(data);
+export const changeChatAvatar = async (
+	data: ChangeChatAvatarSubmitData,
+): Promise<ChangeChatAvatarResponseData | Error> => await chatsApi.changeChatAvatar(data);
+
+export const deleteChat = async (
+	data: DeleteChatSubmitData,
+): Promise<DeleteChatResponseData | Error> => await chatsApi.deleteChat(data);
+
+export const getChatUsers = async (
+	data: GetChatUsersRequest,
+): Promise<GetChatUsersResponse | Error> => await chatsApi.getChatUsers(data);

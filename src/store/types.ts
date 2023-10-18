@@ -8,6 +8,8 @@ export type State = {
 	isOpenDialogAddUserToChat: boolean;
 	isChatPopoverOpened: boolean;
 	isOpenDialogRemoveUserFromChat: boolean;
+	isOpenDialogDeleteChat: boolean;
+	isChangeChatAvatarDialogOpen: boolean;
 	chats: ChatsList;
 	activeChat?: ChatType;
 	activeChatUsers: ChatUser[];

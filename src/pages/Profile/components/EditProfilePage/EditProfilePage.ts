@@ -4,7 +4,7 @@ import { profileValidationScheme } from 'src/shared/validation';
 import { default as EditProfilePageTemplate } from './EditProfilePage.hbs?raw';
 import { Router } from 'src/core/Router/Router';
 import { checkFields } from 'src/shared/utils/formUtils';
-import { changeUser } from 'src/services/UserService';
+import { changeUser, changeUserAvatar } from 'src/services/UserService';
 import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
 import { Routes } from 'src/shared/navigation/routes';
 import { User } from 'src/shared/models/UserModels';
@@ -34,6 +34,16 @@ class _EditProfilePage extends Block {
 					this.refs.errorText.setProps({ errorText });
 				});
 			},
+			onChangeAvatar: (event?: Event) => {
+				const files = (event?.target as HTMLInputElement).files ?? [];
+				if (files.length) {
+					const file = files[0];
+					changeUserAvatar(file).catch(err => {
+						const errorText = parseRequestError(err);
+						this.refs.errorText.setProps({ errorText });
+					});
+				}
+			},
 		});
 
 		this.__router = new Router();
@@ -61,4 +71,6 @@ class _EditProfilePage extends Block {
 	}
 }
 
-export const EditProfilePage = connect(state => ({ user: state.user }))(_EditProfilePage as typeof Block);
+export const EditProfilePage = connect(state => ({ user: state.user }))(
+	_EditProfilePage as typeof Block,
+);

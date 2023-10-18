@@ -4,7 +4,12 @@ import { default as DeleteChatTemplate } from './DeleteChat.hbs?raw';
 export class DeleteChat extends Block {
 	constructor() {
 		super({
-			onClick: () => {},
+			onClick: () => {
+				window.store.set({
+					isOpenDialogDeleteChat: true,
+					isChatPopoverOpened: false,
+				});
+			},
 		});
 	}
 

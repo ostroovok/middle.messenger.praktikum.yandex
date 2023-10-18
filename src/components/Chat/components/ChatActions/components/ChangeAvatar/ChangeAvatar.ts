@@ -4,7 +4,12 @@ import { default as ChangeAvatarTemplate } from './ChangeAvatar.hbs?raw';
 export class ChangeAvatar extends Block {
 	constructor() {
 		super({
-			onClick: () => {},
+			onClick: () => {
+				window.store.set({
+					isChangeChatAvatarDialogOpen: true,
+					isChatPopoverOpened: false,
+				});
+			},
 		});
 	}
 

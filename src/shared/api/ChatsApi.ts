@@ -29,6 +29,7 @@ export class ChatsApi {
 	async deleteChat(data: DeleteChatSubmitData): Promise<DeleteChatResponseData | Error> {
 		return api.delete('', {
 			data,
+			headers: { 'Content-Type': 'application/json' },
 		});
 	}
 	async getChatToken(data: GetChatTokenRequest): Promise<GetChatTokenResponseData | Error> {
@@ -39,8 +40,11 @@ export class ChatsApi {
 	async changeChatAvatar(
 		data: ChangeChatAvatarSubmitData,
 	): Promise<ChangeChatAvatarResponseData | Error> {
+		const fileData = new FormData();
+		fileData.append('avatar', data.file);
+		fileData.set('chatId', String(data.chatId));
 		return api.put('/avatar', {
-			data,
+			data: fileData,
 		});
 	}
 	async addUsersToChat(data: AddUsersToChatSubmitData): Promise<void | Error> {

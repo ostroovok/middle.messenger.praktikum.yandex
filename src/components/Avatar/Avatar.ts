@@ -1,7 +1,5 @@
 import Block from 'src/core/Block';
 import { default as AvatarTemplate } from './Avatar.hbs?raw';
-import { changeUserAvatar } from 'src/services/UserService';
-import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
 import { getResourcesApiUrl } from 'src/shared/api/utils/constants';
 
 type AvatarProps = {
@@ -10,6 +8,7 @@ type AvatarProps = {
 	className: string;
 	imageSrc: string;
 	disabled: boolean;
+	onChange: (event?: Event) => void;
 };
 
 export class Avatar extends Block {
@@ -20,16 +19,7 @@ export class Avatar extends Block {
 		});
 
 		this.props.events = {
-			change: event => {
-				const files = (event?.target as HTMLInputElement).files ?? [];
-				if (files.length) {
-					const file = files[0];
-					changeUserAvatar(file).catch(err => {
-						const errorText = parseRequestError(err);
-						this.refs.errorText.setProps({ errorText });
-					});
-				}
-			},
+			change: this.props.onChange as AvatarProps['onChange'],
 		};
 	}
 

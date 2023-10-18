@@ -1,0 +1,17 @@
+{{#> Modal show=isChangeChatAvatarDialogOpen onClick=onCancel }}
+    <div class="change-chat-avatar-modal__container">
+        {{#> Form overlayClassName="change-chat-avatar-modal__content" className="change-chat-avatar-modal__avatar-container" title="Изменение аватара чата"}}
+            {{{ Avatar
+                imageSrc=activeChat.avatar
+                label="Поменять аватар"
+                name="avatar"
+                className=""
+                onChange=onOk
+            }}}
+            {{{ ErrorLine errorText=errorText ref="errorText" }}}
+        {{/Form}}
+        <div class="change-chat-avatar-modal__actions">
+            {{{Button label="Отмена" type="link" onClick=onCancel className="" }}}
+        </div>
+    </div>
+{{/Modal}}

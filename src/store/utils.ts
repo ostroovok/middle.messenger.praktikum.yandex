@@ -10,6 +10,8 @@ const defaultState: State = {
 	isChatPopoverOpened: false,
 	isOpenDialogAddUserToChat: false,
 	isOpenDialogRemoveUserFromChat: false,
+	isChangeChatAvatarDialogOpen: false,
+	isOpenDialogDeleteChat: false,
 	activeChatUsers: [],
 	chats: [],
 	messages: [],

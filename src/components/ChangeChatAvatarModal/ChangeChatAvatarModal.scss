@@ -1,0 +1,14 @@
+@import 'src/assets/styles/mixins.scss';
+
+.change-chat-avatar-modal {
+	@include modal;
+
+	&__avatar-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		margin-bottom: 10px;
+		gap: 4px;
+	}
+}
