@@ -2,4 +2,7 @@
 
 .delete-user-modal {
 	@include modal;
+	&__title {
+		@include title;
+	}
 }

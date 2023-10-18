@@ -1,9 +1,9 @@
 import Block from 'src/core/Block';
 import { connect } from 'src/store/utils';
 import { default as ChangeChatAvatarModalTemplate } from './ChangeChatAvatarModal.hbs?raw';
-import { changeChatAvatar } from 'src/services/ChatsService';
+import { changeChatAvatar, getChats } from 'src/services/ChatsService';
 import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
-import { ChatType } from 'src/shared/models/ChatModels';
+import { ChatType, ChatsList } from 'src/shared/models/ChatModels';
 
 type ChangeChatAvatarModalProps = {
 	onOk: () => void;
@@ -25,6 +25,11 @@ class _ChangeChatAvatarModal extends Block {
 							window.store.set({
 								activeChat: result as ChatType,
 								isChangeChatAvatarDialogOpen: false,
+							});
+							getChats().then(chats => {
+								window.store.set({
+									chats: chats as ChatsList,
+								});
 							});
 						})
 						.catch(err => {

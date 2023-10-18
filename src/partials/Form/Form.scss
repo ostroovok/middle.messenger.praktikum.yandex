@@ -3,11 +3,6 @@
 
 .form {
     &__title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: $spacing-xl;
-
-        @include font($font-size-title, $font-weight-normal)
+        @include title;
     }
 }
