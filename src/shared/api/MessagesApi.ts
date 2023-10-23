@@ -17,6 +17,7 @@ enum MessagesEvents {
 export enum MessagesTypes {
 	GetOldMessages = 'get old',
 	Message = 'message',
+	Error = 'error',
 }
 
 enum SocketReadyState {
@@ -65,7 +66,7 @@ export class MessagesApi {
 	private open() {
 		this.socket?.addEventListener(MessagesEvents.Open, () => {
 			this.getOldMessages();
-			console.log('соединение открыто')
+			console.log('соединение открыто');
 		});
 	}
 
@@ -85,7 +86,7 @@ export class MessagesApi {
 	private setCloseListener() {
 		this.socket?.addEventListener(MessagesEvents.Close, () => {
 			clearInterval(this.connectionKeepAlive);
-			console.log('соединение закрыто')
+			console.log('соединение закрыто');
 		});
 	}
 

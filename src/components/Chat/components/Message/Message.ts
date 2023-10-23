@@ -3,6 +3,7 @@ import { default as MessageTemplate } from './Message.hbs?raw';
 import { getCurrentUser } from 'src/services/AuthService';
 import { User } from 'src/shared/models/UserModels';
 import { getFullDate, getTime, isNow } from 'src/shared/utils/dateTimeUtils';
+import { connect } from 'src/store/utils';
 
 type MessageProps = {
 	text: string;
@@ -23,3 +24,8 @@ export class Message extends Block {
 		return MessageTemplate;
 	}
 }
+
+// export const Message = connect(state => ({
+// 	user: state.user,
+// 	isUserSender: state.user?.id === state..userID,
+// }))(_Message as typeof Block);

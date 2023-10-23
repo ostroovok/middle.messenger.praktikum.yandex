@@ -14,6 +14,7 @@ export class Footer extends Block {
 				}
 				const fields = this.getFields();
 				sendMessage(fields.message.toString());
+				this.clearFields();
 			},
 		});
 	}
@@ -23,6 +24,11 @@ export class Footer extends Block {
 		return {
 			message: refs.message.value(),
 		};
+	}
+
+	private clearFields() {
+		const refs = this.refs as RefsType<InputField>;
+		refs.message.clear();
 	}
 
 	private validateFields() {

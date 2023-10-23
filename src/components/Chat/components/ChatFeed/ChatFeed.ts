@@ -19,5 +19,5 @@ class _ChatFeed extends Block {
 
 export const ChatFeed = connect(state => ({
 	messages: state.messages,
-	isMessagesExist: state.messages.length !== 0,
+	isMessagesExist: state.messages?.length !== 0,
 }))(_ChatFeed as typeof Block);

@@ -7,7 +7,11 @@ export const isNow = (date: Date) => {
 	);
 };
 
-export const getTime = (date: Date) => `${date.getHours()}:${date.getMinutes()}`;
+export const getTime = (date: Date) => {
+	const timeString = Number(date.getMinutes()) > 10 ? date.getMinutes() : `0${date.getMinutes()}`;
+	const hoursString = Number(date.getHours()) > 10 ? date.getHours() : `0${date.getHours()}`;
+	return `${hoursString}:${timeString}`;
+};
 
 export const getFullDate = (date: Date) =>
 	`${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`;

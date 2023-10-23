@@ -1,17 +1,16 @@
 import Block from 'src/core/Block';
 import ContactListTemplate from './ContactList.hbs?raw';
-import { ChatsList } from 'src/shared/models/ChatModels';
+import { ChatType, ChatsList } from 'src/shared/models/ChatModels';
 import { connect } from 'src/store/utils';
 
 type ContactListProps = {
 	chats: ChatsList;
+	activeChat?: ChatType;
 };
 
 class _ContactList extends Block {
 	constructor(props: ContactListProps) {
-		super({
-			...props,
-		});
+		super(props);
 	}
 
 	protected render() {

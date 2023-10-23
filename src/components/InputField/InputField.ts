@@ -26,6 +26,10 @@ export class InputField extends Block {
 		return ((this.refs.input as InputField)?.element as HTMLInputElement).value;
 	}
 
+	public clear() {
+		((this.refs.input as InputField)?.element as HTMLInputElement).value = '';
+	}
+
 	private validate() {
 		const { showError } = this.props;
 		const { value } = (this.refs.input as InputField)?.element as HTMLInputElement;

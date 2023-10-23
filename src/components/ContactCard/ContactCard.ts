@@ -2,7 +2,8 @@ import Block from 'src/core/Block';
 import { default as ContactCardTemplate } from './ContactCard.hbs?raw';
 import { ChatType, GetChatUsersResponse } from 'src/shared/models/ChatModels';
 import { getChatUsers } from 'src/services/ChatsService';
-import { openChat } from 'src/services/MessagesService';
+import { closeChat, openChat } from 'src/services/MessagesService';
+import { connect } from 'src/store/utils';
 
 type ContactCardProps = ChatType & {
 	sendByMe: boolean;
@@ -27,6 +28,7 @@ export class ContactCard extends Block {
 				window.store.set({
 					activeChat: props,
 				});
+				// closeChat();
 				openChat();
 			},
 		};
@@ -36,3 +38,5 @@ export class ContactCard extends Block {
 		return ContactCardTemplate;
 	}
 }
+
+

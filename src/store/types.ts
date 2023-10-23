@@ -12,7 +12,7 @@ export type State = {
 	isChangeChatAvatarDialogOpen: boolean;
 	chats: ChatsList;
 	activeChat?: ChatType;
-	activeCahtToken?: string;
+	activeChatToken?: string;
 	activeChatUsers: ChatUser[];
 	messages: unknown[];
 };

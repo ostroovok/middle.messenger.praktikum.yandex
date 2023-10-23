@@ -3,7 +3,7 @@
         {{text}}
         <div class="message__meta-info {{#if isUserSender}}message__meta-info__checked{{/if}}">
             {{#if isUserSender}}
-                <div class="message__check-marker check-marker-icon">
+                <div class="message__check-marker {{#if isRead}}check-marker-icon{{else}}no-check-marker-icon{{/if}}">
                 </div>
             {{/if}}
             {{time}}

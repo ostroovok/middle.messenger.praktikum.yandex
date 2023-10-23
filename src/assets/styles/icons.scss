@@ -30,6 +30,13 @@
 	min-width: 11px;
 	min-height: 5px;
 }
+.no-check-marker-icon {
+	@extend %defaul-icon;
+
+	background-image: url('/src/assets/images/no-check-marker.svg');
+	min-width: 11px;
+	min-height: 5px;
+}
 
 .send-icon {
 	@extend %defaul-icon;
