@@ -1,5 +1,9 @@
 export const ApiUrl = 'https://ya-praktikum.tech/api/v2';
+export const WebSocketHost = 'wss://ya-praktikum.tech/ws';
+
 export const DEFAULT_TIMEOUT = 5000;
+export const KEEP_ALIVE_DELAY = 10000;
+export const WAIT_CONNECTION_DELAY = 1000;
 export const OK_STATUS_NUMBER = 200;
 export const OK_STATUS_KEY = 'OK';
 

@@ -9,7 +9,7 @@ type ChatFeedProps = {
 
 class _ChatFeed extends Block {
 	constructor(props: ChatFeedProps) {
-		super({ ...props, isMessagesExist: props.messages.length !== 0 });
+		super({ ...props });
 	}
 
 	protected render() {
@@ -17,4 +17,7 @@ class _ChatFeed extends Block {
 	}
 }
 
-export const ChatFeed = connect(state => ({ messages: state.messages }))(_ChatFeed as typeof Block);
+export const ChatFeed = connect(state => ({
+	messages: state.messages,
+	isMessagesExist: state.messages.length !== 0,
+}))(_ChatFeed as typeof Block);

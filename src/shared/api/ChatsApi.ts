@@ -32,11 +32,6 @@ export class ChatsApi {
 			headers: { 'Content-Type': 'application/json' },
 		});
 	}
-	async getChatToken(data: GetChatTokenRequest): Promise<GetChatTokenResponseData | Error> {
-		return api.post('/token', {
-			data,
-		});
-	}
 	async changeChatAvatar(
 		data: ChangeChatAvatarSubmitData,
 	): Promise<ChangeChatAvatarResponseData | Error> {
@@ -61,5 +56,8 @@ export class ChatsApi {
 			offset: data.offset,
 		};
 		return api.get(`/${data.chatId}/users`, { data: queryData });
+	}
+	async getChatToken(data: GetChatTokenRequest): Promise<GetChatTokenResponseData | Error> {
+		return api.post(`/token/${data.id}`, { headers: { 'Content-Type': 'application/json' } });
 	}
 }

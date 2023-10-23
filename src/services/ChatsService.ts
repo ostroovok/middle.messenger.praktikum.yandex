@@ -7,6 +7,7 @@ import {
 	CreateChatSubmitData,
 	DeleteChatResponseData,
 	DeleteChatSubmitData,
+	GetChatTokenRequest,
 	GetChatUsersRequest,
 	GetChatUsersResponse,
 } from 'src/shared/models/ChatModels';
@@ -23,6 +24,8 @@ export const getChats = async () => {
 	});
 	return chats;
 };
+
+export const getChatToken = async (data: GetChatTokenRequest) => await chatsApi.getChatToken(data);
 
 export const createChat = async (data: CreateChatSubmitData) => {
 	const newChatId = await chatsApi.createChat(data);
