@@ -1,11 +1,11 @@
 export enum Routes {
 	Default = '/',
-	Login = '/login',
+	Login = Default,
 	SignUp = '/sign-up',
-	Chats = '/chats',
-	Profile = '/profile',
-	EditProfile = '/edit-profile',
-	EditProfilePassword = '/edit-profile-password',
+	Chats = '/messenger',
+	Profile = '/settings',
+	EditProfile = '/edit-settings',
+	EditProfilePassword = '/edit-user-password',
 	Error500 = '/server-error',
 	Error404 = '/not-found',
 }
