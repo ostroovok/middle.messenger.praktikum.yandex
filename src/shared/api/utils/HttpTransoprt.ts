@@ -2,6 +2,8 @@ import { ApiUrl, DEFAULT_TIMEOUT, METHODS, OK_STATUS_KEY, OK_STATUS_NUMBER } fro
 import { queryStringify } from './queryStringify';
 import { HttpRequestOptions } from './types';
 
+type HttpMethod = <R = unknown>(url: string, options?: HttpRequestOptions) => Promise<R>;
+
 export class HttpTransport {
 	private __requestUrl: string = '';
 
@@ -9,17 +11,17 @@ export class HttpTransport {
 		this.__requestUrl = `${ApiUrl}${path}`;
 	}
 
-	get = <TResponse>(url: string, options?: HttpRequestOptions) =>
-		this.request<TResponse>(url, { ...options, method: METHODS.GET }, options?.timeout);
+	get: HttpMethod = (url: string, options?: HttpRequestOptions) =>
+		this.request(url, { ...options, method: METHODS.GET }, options?.timeout);
 
-	post = <TResponse>(url: string, options?: HttpRequestOptions) =>
-		this.request<TResponse>(url, { ...options, method: METHODS.POST }, options?.timeout);
+	post: HttpMethod = (url: string, options?: HttpRequestOptions) =>
+		this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
 
-	put = <TResponse>(url: string, options?: HttpRequestOptions) =>
-		this.request<TResponse>(url, { ...options, method: METHODS.PUT }, options?.timeout);
+	put: HttpMethod = (url: string, options?: HttpRequestOptions) =>
+		this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
 
-	delete = <TResponse>(url: string, options?: HttpRequestOptions) =>
-		this.request<TResponse>(url, { ...options, method: METHODS.DELETE }, options?.timeout);
+	delete: HttpMethod = (url: string, options?: HttpRequestOptions) =>
+		this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
 
 	request = <TResponse = unknown>(
 		uri: string,

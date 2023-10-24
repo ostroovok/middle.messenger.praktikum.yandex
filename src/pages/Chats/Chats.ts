@@ -14,12 +14,14 @@ export class Chats extends Block {
 	constructor(props: ChatsProps) {
 		super({
 			...props,
-			createChat: () => {
+			createChat: (event: MouseEvent) => {
+				event.preventDefault();
 				window.store.set({
 					isOpenDialogAddChat: true,
 				});
 			},
-			openProfile: (_: MouseEvent) => {
+			openProfile: (event: MouseEvent) => {
+				event.preventDefault();
 				this.__router.go(Routes.Profile);
 			},
 		});

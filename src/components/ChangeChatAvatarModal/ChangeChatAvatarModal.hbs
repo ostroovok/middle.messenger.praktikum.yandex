@@ -5,13 +5,13 @@
                 imageSrc=activeChat.avatar
                 label="Поменять аватар"
                 name="avatar"
-                className=""
+                className="change-chat-avatar-modal__avatar-button"
                 onChange=onOk
             }}}
             {{{ ErrorLine errorText=errorText ref="errorText" }}}
         {{/Form}}
         <div class="change-chat-avatar-modal__actions">
-            {{{Button label="Отмена" type="link" onClick=onCancel className="" }}}
+            {{{Button label="Отмена" theme="link" onClick=onCancel className="" }}}
         </div>
     </div>
 {{/Modal}}

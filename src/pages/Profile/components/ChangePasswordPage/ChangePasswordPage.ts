@@ -18,10 +18,12 @@ export class ChangePasswordPage extends Block {
 			validate: {
 				newPassword: profileValidationScheme.password,
 			},
-			goBack: () => {
+			goBack: (event: MouseEvent) => {
+				event.preventDefault();
 				this.__router.go(Routes.Profile);
 			},
-			onSubmit: () => {
+			onSubmit: (event: MouseEvent) => {
+				event.preventDefault();
 				if (!this.validateFields()) {
 					return;
 				}

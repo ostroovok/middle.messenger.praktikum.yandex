@@ -24,7 +24,8 @@ export class EditProfilePage extends Block {
 			goBack: () => {
 				this.__router.go(Routes.Profile);
 			},
-			onSubmit: () => {
+			onSubmit: (event: MouseEvent) => {
+				event.preventDefault();
 				if (!this.validateFields()) {
 					return;
 				}
