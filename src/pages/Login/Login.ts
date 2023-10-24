@@ -5,7 +5,7 @@ import { Router } from 'src/core/Router/Router';
 import { Routes } from 'src/shared/navigation/routes';
 import { requiredField } from 'src/shared/validation';
 import { login } from 'src/services/AuthService';
-import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
+import { USER_LOGIN_VALID_ERROR, parseRequestError } from 'src/shared/api/utils/parseRequestError';
 import { checkFields } from 'src/shared/utils/formUtils';
 import { InputField } from 'src/components';
 
@@ -27,8 +27,12 @@ export class Login extends Block {
 					login: fields.login.toString(),
 					password: fields.password.toString(),
 				}).catch(err => {
-					const errorText = parseRequestError(err);
-					this.refs.errorText.setProps({ errorText });
+					const parsedError = parseRequestError(err);
+					if (parsedError.reason === USER_LOGIN_VALID_ERROR) {
+						this.__router.go(Routes.Chats);
+					} else {
+						this.refs.errorText.setProps({ errorText: parsedError.reason });
+					}
 				});
 			},
 			onRegister: (_: MouseEvent) => {
