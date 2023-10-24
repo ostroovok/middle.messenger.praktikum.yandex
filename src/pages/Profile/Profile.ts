@@ -4,6 +4,7 @@ import { Router } from 'src/core/Router/Router';
 import { Routes } from 'src/shared/navigation/routes';
 import { connect } from 'src/store/utils';
 import { User } from 'src/shared/models/UserModels';
+import { logout } from 'src/services/AuthService';
 
 type ProfileProps = {
 	user: User;
@@ -21,7 +22,9 @@ class _Profile extends Block {
 				this.__router.go(Routes.EditProfilePassword);
 			},
 			onLogout: () => {
-				this.__router.go(Routes.Login);
+				logout().then(() => {
+					this.__router.go(Routes.Login);
+				});
 			},
 			goBack: () => {
 				this.__router.go(Routes.Chats);
