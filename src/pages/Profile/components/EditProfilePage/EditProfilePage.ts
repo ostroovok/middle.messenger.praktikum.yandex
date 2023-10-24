@@ -8,16 +8,16 @@ import { changeUser, changeUserAvatar } from 'src/services/UserService';
 import { parseRequestError } from 'src/shared/api/utils/parseRequestError';
 import { Routes } from 'src/shared/navigation/routes';
 import { User } from 'src/shared/models/UserModels';
-import { connect } from 'src/store/utils';
 import { InputField } from 'src/components';
 
 type EditProfilePageProps = {
 	user: User;
 };
 
-class _EditProfilePage extends Block {
+export class EditProfilePage extends Block {
 	private __router: Router;
 	constructor(props: EditProfilePageProps) {
+		const { user } = window.store.getState();
 		super({
 			...props,
 			validate: profileValidationScheme,
@@ -44,6 +44,7 @@ class _EditProfilePage extends Block {
 					});
 				}
 			},
+			user,
 		});
 
 		this.__router = new Router();
@@ -70,7 +71,3 @@ class _EditProfilePage extends Block {
 		return EditProfilePageTemplate;
 	}
 }
-
-export const EditProfilePage = connect(state => ({ user: state.user }))(
-	_EditProfilePage as typeof Block,
-);

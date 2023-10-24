@@ -1,4 +1,4 @@
-import { METHODS } from "./constants";
+import { METHODS } from './constants';
 
 export type PlainObject<T = unknown> = {
 	[k in string]: T;

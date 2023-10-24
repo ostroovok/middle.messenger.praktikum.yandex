@@ -36,5 +36,9 @@ export const checkPermissionsToRedirect = async (pathname: string) => {
 		return Routes.Chats;
 	}
 
+	if (pathname === '') {
+		return Routes.Login;
+	}
+
 	return pathname;
 };

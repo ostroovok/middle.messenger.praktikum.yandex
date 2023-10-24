@@ -4,22 +4,24 @@
 
 .chat-popover {
 	position: relative;
+
 	&__content {
 		background-color: white;
 		width: 250px;
 		height: auto;
 		border-radius: 6px;
-        box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-
+        box-shadow: 0 0 8px 0 rgb(34 60 80 / 20%);
         position: absolute;
 		top: 25px;
         right: 40px;
         padding: 10px;
 	}
+
 	&__overlay {
 		left: 0;
 		display: block;
 	}
+
 	&__background {
 		background: transparent !important;
 	}

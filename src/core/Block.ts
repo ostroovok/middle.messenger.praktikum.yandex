@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 
 export type BlockProps = Record<string, unknown | Block<BlockProps>> & {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	events?: Record<string, (event?: Event) => void>;
 } & object;
 

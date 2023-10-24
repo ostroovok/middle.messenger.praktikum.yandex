@@ -13,6 +13,7 @@ import { InputField } from 'src/components';
 export class ChangePasswordPage extends Block {
 	private __router: Router;
 	constructor() {
+		const { user } = window.store.getState();
 		super({
 			validate: {
 				newPassword: profileValidationScheme.password,
@@ -30,6 +31,7 @@ export class ChangePasswordPage extends Block {
 					this.refs.errorText.setProps({ errorText });
 				});
 			},
+			user,
 		});
 
 		this.__router = new Router();

@@ -8,12 +8,12 @@ export const registerRoutes = () => {
 	const router = new Router();
 
 	router
-		.use(Routes.Default, Pages.Login)
-		.use(Routes.Login, Pages.Login)
-		.use(Routes.SignUp, Pages.SignUp)
-		.use(Routes.Chats, Pages.Chats)
-		.use(Routes.Profile, Pages.Profile)
-		.use(Routes.EditProfile, Pages.EditProfilePage)
+		.use(Routes.Default, Pages.Login as typeof Block)
+		.use(Routes.Login, Pages.Login as typeof Block)
+		.use(Routes.SignUp, Pages.SignUp as typeof Block)
+		.use(Routes.Chats, Pages.Chats as typeof Block)
+		.use(Routes.Profile, Pages.Profile as typeof Block)
+		.use(Routes.EditProfile, Pages.EditProfilePage as typeof Block)
 		.use(Routes.EditProfilePassword, Pages.ChangePasswordPage)
 		.use(
 			Routes.Error404,
