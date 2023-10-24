@@ -75,8 +75,12 @@ export class MessagesApi {
 
 	private setNewMessagesListener() {
 		this.socket?.addEventListener(MessagesEvents.NewMessage, event => {
-			const messages = JSON.parse(event.data);
-			this._onNewMessageCallback?.(Array.isArray(messages) ? messages : [messages]);
+			try {
+				const messages = JSON.parse(event.data);
+				this._onNewMessageCallback?.(Array.isArray(messages) ? messages : [messages]);
+			} catch (error) {
+				console.log(error);
+			}
 		});
 	}
 

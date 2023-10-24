@@ -1,6 +1,6 @@
 <div class="{{overlayClassName}}">
     {{#if title}}<div class="form__title">{{title}}</div>{{/if}}
-    <form class="{{className}}">
+    <form class="{{className}}" {{#if onSubmit}}onsubmit={{onSubmit}}{{/if}}>
         {{> @partial-block }}
     </form>
 </div>

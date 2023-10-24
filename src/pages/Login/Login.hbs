@@ -1,6 +1,6 @@
 <div class="login-page">
     {{#> Layout}}
-        {{#> Form className="login-page__form" overlayClassName="login-page__form-overlay" title="Вход"}}
+        {{#> Form className="login-page__form" overlayClassName="login-page__form-overlay" title="Вход" onSubmit=onLogin}}
             <div>
                 {{{ InputField placeholder="example@yandex.ru" ref="login" name="login" label="Логин" validate=validate.login
                 }}}
@@ -8,8 +8,8 @@
                 {{{ ErrorLine errorText=errorText ref="errorText" }}}
             </div>
             <div class="login-page__action-buttons">
-                {{{ Button label="Войти" type="primary" onClick=onLogin className=""}}}
-                {{{ Button label="Нет аккаунта?" type="link" onClick=onRegister className=""}}}
+                {{{ Button label="Войти" theme="primary" onClick=onLogin className=""}}}
+                {{{ Button label="Нет аккаунта?" theme="link" onClick=onRegister className=""}}}
             </div>
         {{/Form}}
     {{/Layout}}

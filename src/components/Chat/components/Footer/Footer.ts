@@ -8,7 +8,8 @@ import { sendMessage } from 'src/services/MessagesService';
 export class Footer extends Block {
 	constructor() {
 		super({
-			onSend: () => {
+			onSend: (event: SubmitEvent) => {
+				event.preventDefault();
 				if (!this.validateFields()) {
 					return;
 				}

@@ -15,18 +15,22 @@ class _Profile extends Block {
 	constructor(props: ProfileProps) {
 		super({
 			...props,
-			onEditProfile: () => {
+			onEditProfile: (event: MouseEvent) => {
+				event.preventDefault();
 				this.__router.go(Routes.EditProfile);
 			},
-			onChangePassword: () => {
+			onChangePassword: (event: MouseEvent) => {
+				event.preventDefault();
 				this.__router.go(Routes.EditProfilePassword);
 			},
-			onLogout: () => {
+			onLogout: (event: MouseEvent) => {
+				event.preventDefault();
 				logout().then(() => {
 					this.__router.go(Routes.Login);
 				});
 			},
-			goBack: () => {
+			goBack: (event: MouseEvent) => {
+				event.preventDefault();
 				this.__router.go(Routes.Chats);
 			},
 		});

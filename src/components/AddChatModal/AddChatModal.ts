@@ -22,7 +22,8 @@ class _AddChatModal extends Block {
 			validate: {
 				title: requiredField,
 			},
-			onOk: () => {
+			onOk: (event: SubmitEvent) => {
+				event.preventDefault();
 				if (!this.validateFields()) {
 					return;
 				}
@@ -48,7 +49,7 @@ class _AddChatModal extends Block {
 	private getFields() {
 		const refs = this.refs as RefsType<InputField>;
 		return {
-			title: refs.title.value(),
+			title: refs?.title?.value(),
 		};
 	}
 
