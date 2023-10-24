@@ -68,8 +68,8 @@ export class MessagesApi {
 
 	private setOpenListener() {
 		this.socket?.addEventListener(MessagesEvents.Open, () => {
-			this.getOldMessages();
 			this._isConnectionOpen = true;
+			this.getOldMessages();
 		});
 	}
 
@@ -101,17 +101,6 @@ export class MessagesApi {
 		this.socket?.close();
 	}
 
-	private onConnectionIsReady(onReadyCallback: () => void, delay: number = WAIT_CONNECTION_DELAY) {
-		if (this.socket?.readyState === SocketReadyState.Open) {
-			this._isConnectionOpen = true;
-			onReadyCallback();
-		} else {
-			setTimeout(() => {
-				this.onConnectionIsReady(onReadyCallback, delay);
-			}, delay);
-		}
-	}
-
 	shouldResetInstance(newProps: MessagesApiProps) {
 		const { chatId, token, userId } = newProps;
 		return this._chatId !== chatId || this._token !== token || this._userId !== userId;
@@ -124,10 +113,6 @@ export class MessagesApi {
 	sendMessage(message: string, type: string = MessagesTypes.Message) {
 		if (this._isConnectionOpen) {
 			this.socket?.send(JSON.stringify({ content: message, type }));
-		} else {
-			this.onConnectionIsReady(() => {
-				this.socket?.send(JSON.stringify({ content: message, type }));
-			});
-		}
+		} 
 	}
 }
