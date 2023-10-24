@@ -18,8 +18,7 @@ export class Login extends Block {
 				login: requiredField,
 				password: requiredField,
 			},
-			onLogin: (event: MouseEvent) => {
-				// event.preventDefault();
+			onLogin: () => {
 				if (!this.validateFields()) {
 					return;
 				}
