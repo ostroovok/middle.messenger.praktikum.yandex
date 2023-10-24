@@ -64,3 +64,20 @@
 
 	@include font($font-size-title, $font-weight-normal);
 }
+
+@mixin scrollbar {
+	&::-webkit-scrollbar {
+		background: $grey;
+		width: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border: 2px solid $grey;
+		background-color: $light-blue;
+		border-radius: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $grey;
+	}
+}

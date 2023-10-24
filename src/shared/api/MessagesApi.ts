@@ -31,6 +31,7 @@ export class MessagesApi {
 	private _chatId?: number;
 	private _userId?: number;
 	private _token?: string;
+	private _isConnectionOpen?: boolean;
 
 	private socket?: WebSocket;
 	private connectionKeepAlive?: NodeJS.Timeout;
@@ -43,30 +44,32 @@ export class MessagesApi {
 		} else if (MessagesApi.instance) {
 			return MessagesApi.instance;
 		}
+
 		const { chatId, token, userId, callback } = props;
 
-		this._chatId = chatId;
-		this._onNewMessageCallback = callback;
 		this._token = token;
+		this._chatId = chatId;
 		this._userId = userId;
-
-		this.socket = new WebSocket(`${WebSocketHost}/chats/${userId}/${chatId}/${token}`);
-		this.connectionKeepAlive = setInterval(() => {
-			this.socket?.send('');
-		}, KEEP_ALIVE_DELAY);
-		this.open();
-		this.setNewMessagesListener();
-		this.setCloseListener();
-		this.setErrorListener();
+		this._isConnectionOpen = false;
 		this._onNewMessageCallback = callback;
+
+		this.createSocket(chatId, token, userId);
+		this.setListeners();
 
 		MessagesApi.instance = this;
 	}
 
-	private open() {
+	private createSocket(chatId: number, token: string, userId: number) {
+		this.socket = new WebSocket(`${WebSocketHost}/chats/${userId}/${chatId}/${token}`);
+		this.connectionKeepAlive = setInterval(() => {
+			this.socket?.send('');
+		}, KEEP_ALIVE_DELAY);
+	}
+
+	private setOpenListener() {
 		this.socket?.addEventListener(MessagesEvents.Open, () => {
 			this.getOldMessages();
-			console.log('соединение открыто');
+			this._isConnectionOpen = true;
 		});
 	}
 
@@ -77,17 +80,17 @@ export class MessagesApi {
 		});
 	}
 
-	private setErrorListener() {
-		this.socket?.addEventListener(MessagesEvents.Error, event => {
-			console.log('ERROR', event);
+	private setCloseListener() {
+		this.socket?.addEventListener(MessagesEvents.Close, () => {
+			this._isConnectionOpen = false;
+			clearInterval(this.connectionKeepAlive);
 		});
 	}
 
-	private setCloseListener() {
-		this.socket?.addEventListener(MessagesEvents.Close, () => {
-			clearInterval(this.connectionKeepAlive);
-			console.log('соединение закрыто');
-		});
+	private setListeners() {
+		this.setOpenListener();
+		this.setNewMessagesListener();
+		this.setCloseListener();
 	}
 
 	private getOldMessages() {
@@ -98,12 +101,13 @@ export class MessagesApi {
 		this.socket?.close();
 	}
 
-	private waitConnection(callback: () => void, delay: number = WAIT_CONNECTION_DELAY) {
+	private onConnectionIsReady(onReadyCallback: () => void, delay: number = WAIT_CONNECTION_DELAY) {
 		if (this.socket?.readyState === SocketReadyState.Open) {
-			callback();
+			this._isConnectionOpen = true;
+			onReadyCallback();
 		} else {
 			setTimeout(() => {
-				this.waitConnection(callback, delay);
+				this.onConnectionIsReady(onReadyCallback, delay);
 			}, delay);
 		}
 	}
@@ -118,12 +122,12 @@ export class MessagesApi {
 	}
 
 	sendMessage(message: string, type: string = MessagesTypes.Message) {
-		this.waitConnection(() => {
+		if (this._isConnectionOpen) {
 			this.socket?.send(JSON.stringify({ content: message, type }));
-		});
-	}
-
-	getApi() {
-		return MessagesApi.instance;
+		} else {
+			this.onConnectionIsReady(() => {
+				this.socket?.send(JSON.stringify({ content: message, type }));
+			});
+		}
 	}
 }

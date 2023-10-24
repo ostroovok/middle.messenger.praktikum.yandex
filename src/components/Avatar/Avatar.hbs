@@ -1,8 +1,7 @@
 <button class='avatar {{className}}' type='button'>
-	<img
-		src={{imageSrc}}
-		class="avatar__image"
-	/>
+	{{#if imageSrc}}
+		<img src={{imageSrc}} alt='' class='avatar__image' />
+	{{/if}}
 	{{#if disabled}}{{else}}
 		<label for='{{name}}' class='avatar__overlay'>
 			<span class='avatar__label'>{{label}}</span>

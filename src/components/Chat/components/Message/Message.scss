@@ -14,6 +14,8 @@
 	max-width: 402px;
 	flex-direction: row;
 	position: relative;
+	flex-direction: column;
+	gap: 4px;
 
 	&__user-sender {
 		text-align: end;
@@ -28,6 +30,10 @@
 		border-bottom-left-radius: 0;
 		margin-right: auto;
 		margin-left: 0;
+	}
+
+	&__recipient-name {
+		@include font($font-size-normal, $font-weight-light, $text-second);
 	}
 
 	&__content {

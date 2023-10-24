@@ -3,6 +3,8 @@ import Block from '../core/Block';
 import { Store, StoreEvents } from './store';
 import { State } from './types';
 
+export const SESSION_STORAGE_STATE_KEY = 'app-store';
+
 const defaultState: State = {
 	error: null,
 	user: null,
@@ -19,13 +21,15 @@ const defaultState: State = {
 
 export const initStore = () => {
 	if (window.store) return;
-
-	window.store = new Store<State>(defaultState);
+	const sessionState = sessionStorage.getItem(SESSION_STORAGE_STATE_KEY);
+	const appStore = sessionState ? (JSON.parse(sessionState) as State) : defaultState;
+	window.store = new Store<State>(appStore);
 };
 
 export const resetStoreState = () => {
 	if (!window.store) return;
 	window.store.set(defaultState);
+	sessionStorage.setItem(SESSION_STORAGE_STATE_KEY, JSON.stringify(defaultState));
 };
 
 export const connect = (mapStateToProps: (state: State) => Partial<State>) => {

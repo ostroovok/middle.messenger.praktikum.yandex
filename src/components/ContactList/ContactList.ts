@@ -21,4 +21,5 @@ class _ContactList extends Block {
 export const ContactList = connect(state => ({
 	chats: state.chats,
 	activeChat: state.activeChat,
+	messages: state.messages
 }))(_ContactList as typeof Block);

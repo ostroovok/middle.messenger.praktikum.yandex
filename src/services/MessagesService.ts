@@ -3,13 +3,13 @@ import { getChatToken } from './ChatsService';
 import { GetChatTokenResponseData } from 'src/shared/models/ChatModels';
 import { NewMessagesResponse } from 'src/shared/models/MessagesModels';
 
-export const updateFeed = (messages: unknown[]) => {
+const updateFeed = (messages: unknown[]) => {
 	const { messages: oldMessages } = window.store.getState();
 	const newMessages = messages.filter(
 		mess => (mess as NewMessagesResponse).type === MessagesTypes.Message,
 	);
 	window.store.set({
-		messages: [...oldMessages, ...newMessages],
+		messages: [...newMessages, ...oldMessages],
 	});
 };
 

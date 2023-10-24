@@ -11,6 +11,8 @@ import {
 	GetChatTokenResponseData,
 	GetChatUsersRequest,
 	GetChatUsersResponse,
+	GetCommonChatRequest,
+	GetCommonChatResponseData,
 } from '../models/ChatModels';
 import { HttpTransport } from './utils/HttpTransoprt';
 
@@ -59,5 +61,8 @@ export class ChatsApi {
 	}
 	async getChatToken(data: GetChatTokenRequest): Promise<GetChatTokenResponseData | Error> {
 		return api.post(`/token/${data.id}`, { headers: { 'Content-Type': 'application/json' } });
+	}
+	async getCommonChat(data: GetCommonChatRequest): Promise<GetCommonChatResponseData | Error> {
+		return api.get(`/${data.id}/common`);
 	}
 }

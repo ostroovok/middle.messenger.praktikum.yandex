@@ -11,13 +11,17 @@
 				<div class='contact-card__message-preview'>
 					{{#if sendByMe}}
 						<span class='contact-card__message-preview-user-prefix'>Вы:</span>
+					{{else}}
+						{{#if last_message.user}}
+							<span class='contact-card__message-preview-user-prefix'>{{last_message.user.first_name}}:</span>
+						{{/if}}
 					{{/if}}
 					{{last_message.content}}
 				</div>
 			</div>
 			<div class='contact-card__meta-data'>
 				<div class='contact-card__time'>
-					{{last_message.time}}
+					{{dateTime}}
 				</div>
 				{{#if unread_count}}
 					<div class='contact-card__unread-messages'>

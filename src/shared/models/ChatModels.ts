@@ -82,3 +82,8 @@ export type DeleteUsersFromChatSubmitData = {
 	chatId: number;
 	users: number[];
 };
+
+export type GetCommonChatRequest = {
+	id: number;
+};
+export type GetCommonChatResponseData = ChatType;

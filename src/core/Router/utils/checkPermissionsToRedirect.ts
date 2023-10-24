@@ -1,4 +1,3 @@
-import { initStore } from 'src/store/utils';
 import { AuthApi } from '../../../shared/api/AuthApi';
 import { Routes } from 'src/shared/navigation/routes';
 import { User } from 'src/shared/models/UserModels';
@@ -6,7 +5,6 @@ import { User } from 'src/shared/models/UserModels';
 const authApi = new AuthApi();
 
 const getPermissions = async (): Promise<{ redirectAllowed: boolean; logoutIsNeeded: boolean }> => {
-	initStore();
 	const { user: stateUserData } = window.store?.getState();
 	const currentUserResponse = await authApi.getCurrentUser().catch(() => undefined);
 

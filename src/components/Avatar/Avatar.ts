@@ -15,7 +15,7 @@ export class Avatar extends Block {
 	constructor(props: AvatarProps) {
 		super({
 			...props,
-			imageSrc: getResourcesApiUrl(props.imageSrc),
+			imageSrc: props.imageSrc ? getResourcesApiUrl(props.imageSrc) : undefined,
 		});
 
 		this.props.events = {

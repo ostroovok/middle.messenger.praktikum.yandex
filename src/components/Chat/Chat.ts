@@ -2,7 +2,7 @@ import Block from 'src/core/Block';
 import { logFormData } from 'src/shared/utils/logFormData';
 import { RefsType } from 'src/shared/types';
 import { default as ChatTemplate } from './Chat.hbs?raw';
-import { connect, initStore } from 'src/store/utils';
+import { connect } from 'src/store/utils';
 import { ChatType } from 'src/shared/models/ChatModels';
 import { InputField } from '..';
 
@@ -12,7 +12,6 @@ type ChatProps = {
 
 class _Chat extends Block {
 	constructor(props: ChatProps) {
-		initStore();
 		super({
 			...props,
 			validate: {

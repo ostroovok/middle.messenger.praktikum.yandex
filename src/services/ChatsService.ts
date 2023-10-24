@@ -10,6 +10,7 @@ import {
 	GetChatTokenRequest,
 	GetChatUsersRequest,
 	GetChatUsersResponse,
+	GetCommonChatRequest,
 } from 'src/shared/models/ChatModels';
 import { getUsersByLogin } from './UserService';
 import { User } from 'src/shared/models/UserModels';
@@ -58,3 +59,6 @@ export const deleteChat = async (
 export const getChatUsers = async (
 	data: GetChatUsersRequest,
 ): Promise<GetChatUsersResponse | Error> => await chatsApi.getChatUsers(data);
+
+export const getCommonChat = async (data: GetCommonChatRequest) =>
+	await chatsApi.getCommonChat(data);

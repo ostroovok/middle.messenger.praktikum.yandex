@@ -1,0 +1,6 @@
+@import 'src/assets/styles/mixins.scss';
+
+.chats-list {
+	overflow: auto;
+    @include scrollbar;
+}

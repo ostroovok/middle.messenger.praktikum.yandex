@@ -174,12 +174,12 @@ class Block<T extends BlockProps = BlockProps> {
 
 	protected componentWillUnmount() {}
 
-	unmount() {
-		this._componentWillUnmount();
-	}
-
 	protected render(): string {
 		return '';
+	}
+
+	unmount() {
+		this._componentWillUnmount();
 	}
 
 	getContent() {

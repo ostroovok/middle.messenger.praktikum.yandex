@@ -2,21 +2,23 @@ import Block from 'src/core/Block';
 import { default as ContactCardTemplate } from './ContactCard.hbs?raw';
 import { ChatType, GetChatUsersResponse } from 'src/shared/models/ChatModels';
 import { getChatUsers } from 'src/services/ChatsService';
-import { closeChat, openChat } from 'src/services/MessagesService';
-import { connect } from 'src/store/utils';
+import { openChat } from 'src/services/MessagesService';
+import { getDateOrTime } from 'src/shared/utils/dateTimeUtils';
 
 type ContactCardProps = ChatType & {
 	sendByMe: boolean;
-	// currentSelected: boolean;
 };
 
 export class ContactCard extends Block {
 	constructor(props: ContactCardProps) {
 		const state = window.store.getState();
+		const date = props.last_message ? new Date(props.last_message.time) : null;
+		const dateTime = date ? getDateOrTime(date) : '';
 		super({
 			...props,
 			sendByMe: props.last_message?.user?.login === state.user?.login,
 			currentSelected: state.activeChat?.id === props.id,
+			dateTime,
 		});
 		this.props.events = {
 			click: () => {
@@ -28,7 +30,6 @@ export class ContactCard extends Block {
 				window.store.set({
 					activeChat: props,
 				});
-				// closeChat();
 				openChat();
 			},
 		};
@@ -38,5 +39,3 @@ export class ContactCard extends Block {
 		return ContactCardTemplate;
 	}
 }
-
-
