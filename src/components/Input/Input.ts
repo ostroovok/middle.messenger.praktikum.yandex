@@ -1,5 +1,5 @@
 import Block from 'src/core/Block';
-import { noop } from 'src/shared/utils';
+import { noop } from 'src/shared/utils/noop';
 import { default as InputTemplate } from './Input.hbs?raw';
 
 export type InputProps = {

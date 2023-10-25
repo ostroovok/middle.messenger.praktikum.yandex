@@ -1,27 +1,31 @@
-<div class='contact-card'>
+<div class='contact-card {{#if currentSelected}}contact-card__selected{{/if}}'>
 	<div class='contact-card__container'>
 		<div class='contact-card__image-container'>
-			<img src='{{avatarUrl}}' alt="" class='contact-card__image' />
+			{{{ Avatar imageSrc=avatar className="contact-card__image" disabled=true}}}
 		</div>
 		<div class='contact-card__content-container'>
 			<div class='contact-card__main-data'>
 				<div class='contact-card__name'>
-					{{contactName}}
+					{{title}}
 				</div>
 				<div class='contact-card__message-preview'>
-					{{#if sendByUser}}
+					{{#if sendByMe}}
 						<span class='contact-card__message-preview-user-prefix'>Вы:</span>
+					{{else}}
+						{{#if last_message.user}}
+							<span class='contact-card__message-preview-user-prefix'>{{last_message.user.first_name}}:</span>
+						{{/if}}
 					{{/if}}
-					{{lastMessagePreview}}
+					{{last_message.content}}
 				</div>
 			</div>
 			<div class='contact-card__meta-data'>
 				<div class='contact-card__time'>
-					{{lastMessagetime}}
+					{{dateTime}}
 				</div>
-				{{#if unreadMessages}}
+				{{#if unread_count}}
 					<div class='contact-card__unread-messages'>
-						{{unreadMessages}}
+						{{unread_count}}
 					</div>
 				{{/if}}
 			</div>

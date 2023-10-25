@@ -1,5 +1,6 @@
 import Block from 'src/core/Block';
 import { default as AvatarTemplate } from './Avatar.hbs?raw';
+import { getResourcesApiUrl } from 'src/shared/api/utils/constants';
 
 type AvatarProps = {
 	label: string;
@@ -7,11 +8,19 @@ type AvatarProps = {
 	className: string;
 	imageSrc: string;
 	disabled: boolean;
+	onChange: (event?: Event) => void;
 };
 
 export class Avatar extends Block {
 	constructor(props: AvatarProps) {
-		super(props);
+		super({
+			...props,
+			imageSrc: props.imageSrc ? getResourcesApiUrl(props.imageSrc) : undefined,
+		});
+
+		this.props.events = {
+			change: this.props.onChange as AvatarProps['onChange'],
+		};
 	}
 
 	protected render(): string {

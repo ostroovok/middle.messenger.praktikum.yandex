@@ -3,7 +3,8 @@ import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 
 export type BlockProps = Record<string, unknown | Block<BlockProps>> & {
-	events?: Record<string, () => void>;
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	events?: Record<string, (event?: Event) => void>;
 } & object;
 
 type RootChildren = {
@@ -167,8 +168,19 @@ class Block<T extends BlockProps = BlockProps> {
 		return temp.content;
 	}
 
+	private _componentWillUnmount() {
+		this.componentWillUnmount();
+		this._removeEvents();
+	}
+
+	protected componentWillUnmount() {}
+
 	protected render(): string {
 		return '';
+	}
+
+	unmount() {
+		this._componentWillUnmount();
 	}
 
 	getContent() {

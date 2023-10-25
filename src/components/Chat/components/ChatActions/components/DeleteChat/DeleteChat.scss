@@ -1,0 +1,8 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/colors';
+
+.delete-chat {
+	@include list-button;
+
+	color: $error-text;
+}

@@ -4,7 +4,6 @@ import { default as IconButtonTemplate } from './IconButton.hbs?raw';
 type IconButtonProps = {
 	className: string;
 	type: string;
-	navTo: string;
 	icon: string;
 	onClick: () => void;
 };

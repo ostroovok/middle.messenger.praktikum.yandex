@@ -1,9 +1,94 @@
-@import "/src/assets/styles/colors";
-@import "/src/assets/styles/common";
+@import '/src/assets/styles/colors';
+@import '/src/assets/styles/common';
 
-@mixin font($size: $font-size-normal, $weight: $font-weight-normal, $color: $main-blue, $family: "Inter") {
-    color: $color;
-    font-size: $size;
-    font-weight: $weight;
-    font-family: $family;
+@mixin font(
+	$size: $font-size-normal,
+	$weight: $font-weight-normal,
+	$color: $main-blue,
+	$family: 'Inter'
+) {
+	color: $color;
+	font-size: $size;
+	font-weight: $weight;
+	font-family: $family;
+}
+
+@mixin list-button {
+	justify-content: flex-start;
+	border-radius: 2px;
+
+	& span {
+		padding: 0 4px;
+	}
+
+	&:hover {
+		background: $blue-hover;
+		cursor: pointer;
+	}
+}
+
+@mixin modal {
+	&__container {
+		background: white;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		min-width: 350px;
+		min-height: 250px;
+		height: 250px;
+		border-radius: 6px;
+		padding: 24px;
+	}
+
+	&__content {
+		width: 100%;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+	}
+
+	&__actions {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 10px;
+		width: 100%;
+	}
+
+	&__overlay {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@mixin title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: $spacing-xl;
+
+	@include font($font-size-title, $font-weight-normal);
+}
+
+@mixin scrollbar {
+	&::-webkit-scrollbar {
+		background: $grey;
+		width: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border: 2px solid $grey;
+		background-color: $light-blue;
+		border-radius: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $grey;
+	}
 }

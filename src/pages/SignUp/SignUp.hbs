@@ -10,14 +10,15 @@
         {{{ InputField ref="second_name" name="second_name" label="Фамилия" type="text" className=""
         validate=validate.secondName}}}
         {{{ InputField ref="phone" name="phone" label="Телефон" type="text" className="" validate=validate.phone}}}
-        {{{ InputField ref="password" name="password" label="Пароль" type="text" className=""
+        {{{ InputField ref="password" name="password" label="Пароль" type="password" className=""
         validate=validate.password}}}
-        {{{ InputField ref="secondPassword" label="Пароль (ещё раз)" type="text" className=""
-        validate=validate.password}}}
+        {{{ InputField ref="secondPassword" label="Пароль (ещё раз)" type="password" className=""
+        validate=validate.secondPassword }}}
+        {{{ ErrorLine errorText=errorText ref="errorText" }}}
     </div>
     <div class="sign-up__action-buttons">
-        {{{ Button label="Зарегистрироваться" type="primary" navTo="chats" onClick=onSignUp className=""}}}
-        {{{ Button label="Войти" type="link" navTo="login" className=""}}}
+        {{{ Button label="Зарегистрироваться" theme="primary" onClick=onSignUp className=""}}}
+        {{{ Button label="Войти" theme="link" onClick=onLogin className=""}}}
     </div>
     {{/Form}}
     {{/Layout}}

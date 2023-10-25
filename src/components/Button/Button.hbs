@@ -1,4 +1,5 @@
-<button type="button" class="button {{#if type}}button__{{type}}{{/if}} {{className}}" {{#if navTo}}page="{{navTo}}"
-    {{/if}}>
-    {{label}}
+<button type="{{#if type}}{{type}}{{else}}button{{/if}}" class="button {{#if theme}}button__{{theme}}{{/if}} {{className}}">
+    <span>
+        {{label}}
+    </span>
 </button>

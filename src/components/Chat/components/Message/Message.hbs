@@ -1,10 +1,11 @@
 <div class="message {{#if isUserSender}}message__user-sender{{else}}message__user-recipient{{/if}}">
+    <div class="message__recipient-name">{{senderName}}</div>
     <div class="message__content">
         {{text}}
         <div class="message__meta-info {{#if isUserSender}}message__meta-info__checked{{/if}}">
             {{#if isUserSender}}
-            <div class="message__check-marker check-marker-icon">
-            </div>
+                <div class="message__check-marker {{#if isRead}}check-marker-icon{{else}}no-check-marker-icon{{/if}}">
+                </div>
             {{/if}}
             {{time}}
         </div>

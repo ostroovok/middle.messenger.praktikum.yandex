@@ -20,13 +20,14 @@ export function registerComponent(name: string, Component: typeof Block) {
 				const stub = fragment.querySelector(`[${dataAttribute}]`);
 
 				if (!stub) {
-					return;
+					throw new Error(`Can't find component ${name}`);
 				}
 
-				component.getContent()?.append(...Array.from(stub.childNodes));
-
 				const content = component.getContent();
-				content && stub.replaceWith();
+				if (content) {
+					content.append(...Array.from(stub.childNodes));
+					stub.replaceWith(content);
+				}
 			},
 		});
 

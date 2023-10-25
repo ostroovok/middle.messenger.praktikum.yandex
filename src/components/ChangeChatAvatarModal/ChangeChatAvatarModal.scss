@@ -1,0 +1,19 @@
+@import 'src/assets/styles/mixins';
+
+.change-chat-avatar-modal {
+	@include modal;
+
+	&__avatar-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		margin-bottom: 10px;
+		gap: 4px;
+	}
+
+	&__avatar-button {
+		width: 100px;
+		height: 100px;
+	}
+}

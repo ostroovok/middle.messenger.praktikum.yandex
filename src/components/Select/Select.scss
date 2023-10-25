@@ -1,0 +1,26 @@
+@import '/src/assets/styles/mixins';
+
+.select {
+	&__container {
+		@include font;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+        gap: 10px
+	}
+
+	&__label {
+		width: 100%;
+	}
+
+	&__content {
+        height: 32px;
+		width: 100%;
+		border: 1px solid gray;
+		border-radius: 6px;
+		background-color: white;
+	}
+}

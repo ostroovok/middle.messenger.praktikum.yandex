@@ -5,6 +5,10 @@
 .contact-card {
   border-top: 1px solid $grey-dark;
 
+  &__selected {
+    background-color: $blue-hover;
+  }
+
   &__container {
     display: flex;
     gap: $spacing-sm;

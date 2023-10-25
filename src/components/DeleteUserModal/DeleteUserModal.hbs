@@ -1,0 +1,12 @@
+{{#> Modal show=isOpenDialogRemoveUserFromChat onClick=onCancel }}
+    <div class="delete-user-modal__container">
+        {{#> Form overlayClassName="modal__content" title="Удаление пользователей"}}
+            {{{ SelectField options=chatUsers label="Пользователи" ref="userId" validate=validate.userId placeholder="Выберите пользователей" }}}
+            {{{ ErrorLine errorText=errorText ref="errorText" }}}
+        {{/Form}}
+        <div class="delete-user-modal__actions">
+            {{{Button label="Удалить" theme="primary" onClick=onOk className="" }}}
+            {{{Button label="Отмена" theme="link" onClick=onCancel className="" }}}
+        </div>
+    </div>
+{{/Modal}}

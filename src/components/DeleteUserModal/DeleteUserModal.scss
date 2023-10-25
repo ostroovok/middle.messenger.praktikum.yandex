@@ -1,0 +1,5 @@
+@import 'src/assets/styles/mixins';
+
+.delete-user-modal {
+	@include modal;
+}

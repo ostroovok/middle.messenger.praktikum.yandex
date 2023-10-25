@@ -10,6 +10,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0;
 
 	&__overlay {
 		position: absolute;
@@ -25,6 +26,13 @@
 		align-items: center;
 		transition: $common-transition;
 		color: $white;
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		object-fit: cover;
 	}
 
 	&:hover {

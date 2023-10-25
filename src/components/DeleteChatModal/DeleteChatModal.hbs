@@ -1,0 +1,9 @@
+{{#> Modal show=isOpenDialogDeleteChat onClick=onCancel }}
+    <div class="delete-user-modal__container">
+        <div class="delete-user-modal__title">Удалить чат?</div>
+        <div class="delete-user-modal__actions">
+            {{{Button label="Удалить" theme="primary" onClick=onOk className="" }}}
+            {{{Button label="Отмена" theme="link" onClick=onCancel className="" }}}
+        </div>
+    </div>
+{{/Modal}}

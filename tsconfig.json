@@ -1,42 +1,27 @@
 {
 	"compilerOptions": {
-	  "target": "ES2020",
-	  "useDefineForClassFields": true,
-	  "module": "ESNext",
-	  "lib": [
-		"ES2020",
-		"DOM",
-		"DOM.Iterable"
-	  ],
-	  "skipLibCheck": true,
-	  "typeRoots": [
-		"node_modules/@types",
-		"types/"
-	  ],
-	  "types": [
-		"vite/client"
-	  ],
-  
-	  "baseUrl": ".",
-	  "moduleResolution": "bundler",
-	  "allowImportingTsExtensions": true,
-	  "resolveJsonModule": true,
-	  "isolatedModules": true,
-	  "noEmit": true,
-	  
-	  "strict": true,
-	  "noFallthroughCasesInSwitch": true,
-	  "noImplicitAny": true,
-	  "noUnusedLocals": true,
-	  "noUnusedParameters": true,
-	  "sourceMap": true,
-	  "strictNullChecks": true
+		"target": "ES2020",
+		"useDefineForClassFields": true,
+		"module": "ESNext",
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"skipLibCheck": true,
+		"typeRoots": ["node_modules/@types", "types/"],
+
+		"baseUrl": ".",
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+
+		"strict": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"sourceMap": true,
+		"strictNullChecks": true
 	},
-	"include": [
-	  "src/**/*.ts"
-	],
-	"exclude": [
-	  "node_modules",
-	  ".vscode"
-	]
-  }
+	"include": ["src/**/*.ts", "src/core/Router/utils"],
+	"exclude": ["node_modules", ".vscode"]
+}

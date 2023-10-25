@@ -1,61 +1,28 @@
 import Handlebars from 'handlebars';
 import * as Components from './components';
 import * as Partials from './partials';
-import * as Pages from './pages';
 import Block from './core/Block';
 import './global.scss';
 import { registerComponent } from './core/resgiterComponent';
+import { registerRoutes } from './shared/navigation/registerRoutes';
+import { State } from './store/types';
+import { Store } from './store/store';
+import { initStore } from './store/utils';
 
-const pages: { [key: string]: [typeof Block<Record<string, unknown>>, context: Record<string, unknown>] } = {
-	login: [Pages.Login, {}],
-	signUp: [Pages.SignUp, {}],
-	chats: [Pages.Chats, {}],
-	notFound: [
-		Pages.Error,
-		{
-			title: '404',
-			subTitle: 'Не туда попали',
-		},
-	],
-	serverError: [
-		Pages.Error,
-		{
-			title: '500',
-			subTitle: 'Мы уже фиксим',
-		},
-	],
-	profile: [Pages.Profile, {}],
-	editProfile: [Pages.EditProfilePage, {}],
-	changePassword: [Pages.ChangePasswordPage, {}],
-};
+declare global {
+	interface Window {
+		store: Store<State>;
+	}
+}
 
 Handlebars.registerPartial('Form', Partials.Form);
 Handlebars.registerPartial('Layout', Partials.Layout);
 Handlebars.registerPartial('Sider', Partials.Sider);
-Handlebars.registerPartial('ContactList', Partials.ContactList);
+Handlebars.registerPartial('Modal', Partials.Modal);
 
 Object.entries(Components).forEach(([key, source]) => {
 	registerComponent(key, source as typeof Block);
 });
 
-function navigate(page: keyof typeof pages) {
-	const container = document.getElementById('root');
-	const [Component, context] = pages[page];
-	const component = new Component(context);
-
-	const content = component.getContent();
-
-	content && container?.replaceChildren(content);
-}
-
-document.addEventListener('DOMContentLoaded', () => navigate('login'));
-
-document.addEventListener('click', e => {
-	const page = (e.target as HTMLElement)?.getAttribute?.('page');
-	if (page) {
-		navigate(page);
-
-		e.preventDefault();
-		e.stopImmediatePropagation();
-	}
-});
+registerRoutes();
+initStore();
