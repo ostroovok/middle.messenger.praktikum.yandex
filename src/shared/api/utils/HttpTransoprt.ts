@@ -11,16 +11,16 @@ export class HttpTransport {
 		this.__requestUrl = `${ApiUrl}${path}`;
 	}
 
-	get: HttpMethod = (url: string, options?: HttpRequestOptions) =>
+	get: HttpMethod = (url, options) =>
 		this.request(url, { ...options, method: METHODS.GET }, options?.timeout);
 
-	post: HttpMethod = (url: string, options?: HttpRequestOptions) =>
+	post: HttpMethod = (url, options) =>
 		this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
 
-	put: HttpMethod = (url: string, options?: HttpRequestOptions) =>
+	put: HttpMethod = (url, options) =>
 		this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
 
-	delete: HttpMethod = (url: string, options?: HttpRequestOptions) =>
+	delete: HttpMethod = (url, options) =>
 		this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
 
 	request = <TResponse = unknown>(
