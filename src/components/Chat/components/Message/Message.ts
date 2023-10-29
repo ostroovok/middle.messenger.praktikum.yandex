@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as MessageTemplate } from './Message.hbs?raw';
 import { getDateOrTime } from 'src/shared/utils/dateTimeUtils';
 

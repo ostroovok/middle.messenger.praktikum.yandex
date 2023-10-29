@@ -1,5 +1,5 @@
 import isEqual from 'src/shared/utils/isEqual';
-import Block from '../core/Block';
+import Block from '../core/Block/Block';
 import { Store, StoreEvents } from './store';
 import { State } from './types';
 

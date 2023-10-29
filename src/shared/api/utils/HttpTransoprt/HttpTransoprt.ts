@@ -1,6 +1,6 @@
-import { ApiUrl, DEFAULT_TIMEOUT, METHODS, OK_STATUS_KEY, OK_STATUS_NUMBER } from './constants';
-import { queryStringify } from './queryStringify';
-import { HttpRequestOptions } from './types';
+import { ApiUrl, DEFAULT_TIMEOUT, METHODS, OK_STATUS_KEY, OK_STATUS_NUMBER } from '../constants';
+import { queryStringify } from '../queryStringify';
+import { HttpRequestOptions } from '../types';
 
 type HttpMethod = <R = unknown>(url: string, options?: HttpRequestOptions) => Promise<R>;
 

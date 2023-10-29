@@ -1,0 +1,1 @@
+export { checkPermissionsToRedirect } from './checkPermissionsToRedirect';

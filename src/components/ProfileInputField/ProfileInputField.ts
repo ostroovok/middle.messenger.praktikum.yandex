@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { ValidationCallback } from 'src/shared/types';
 import { default as ProfileInputFieldTemplate } from './ProfileInputField.hbs?raw';
 import { InputField } from '..';

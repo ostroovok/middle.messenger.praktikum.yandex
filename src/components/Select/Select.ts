@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { NamedEntity } from 'src/shared/types';
 import { default as SelectTemplate } from './Select.hbs?raw';
 import { noop } from 'src/shared/utils/noop';

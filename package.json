@@ -7,27 +7,37 @@
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
+		"test": "mocha",
 		"start": "npm run build && node server.cjs",
 		"lint": "eslint src --fix && stylelint \"**/*.scss\" --fix"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^6.7.2",
-		"eslint": "7.32.0",
-		"sass": "^1.66.1",
-		"stylelint": "^15.10.3",
-		"typescript": "^5.0.2",
-		"vite": "^4.4.5",
+		"@types/chai": "^4.3.9",
+		"@types/mocha": "^10.0.3",
 		"@types/node": "^20.8.7",
+		"@types/sinon": "^10.0.20",
+		"@typescript-eslint/eslint-plugin": "^6.7.2",
 		"@typescript-eslint/parser": "^5.62.0",
+		"chai": "^4.3.10",
+		"eslint": "7.32.0",
 		"eslint-config-airbnb": "18.2.1",
 		"eslint-config-prettier": "8.5.0",
 		"eslint-import-resolver-typescript": "2.7.1",
 		"eslint-plugin-import": "2.26.0",
 		"eslint-plugin-prettier": "4.0.0",
-		"stylelint-config-standard-scss": "^11.0.0"
+		"express": "^4.18.2",
+		"husky": "^8.0.3",
+		"jsdom": "^22.1.0",
+		"mocha": "^10.2.0",
+		"npm-run-all": "^4.1.5",
+		"sass": "^1.66.1",
+		"sinon": "^17.0.0",
+		"stylelint": "^15.10.3",
+		"stylelint-config-standard-scss": "^11.0.0",
+		"typescript": "^5.0.2",
+		"vite": "^4.4.5"
 	},
 	"dependencies": {
-		"express": "^4.18.2",
 		"handlebars": "^4.7.8"
 	}
 }

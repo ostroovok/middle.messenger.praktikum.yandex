@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import * as Components from './components';
 import * as Partials from './partials';
-import Block from './core/Block';
+import Block from './core/Block/Block';
 import './global.scss';
 import { registerComponent } from './core/resgiterComponent';
 import { registerRoutes } from './shared/navigation/registerRoutes';

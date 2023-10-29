@@ -1,5 +1,5 @@
 import * as Pages from 'src/pages';
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { Routes } from './routes';
 import { Router } from 'src/core/Router/Router';
 import { ErrorProps } from 'src/pages/Error';

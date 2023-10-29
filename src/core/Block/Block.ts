@@ -1,4 +1,4 @@
-import EventBus, { Listener } from './EventBus';
+import EventBus, { Listener } from '../EventBus';
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
 

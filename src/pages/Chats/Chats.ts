@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as ChatsTemplate } from './Chats.hbs?raw';
 import { Router } from 'src/core/Router/Router';
 import { Routes } from 'src/shared/navigation/routes';

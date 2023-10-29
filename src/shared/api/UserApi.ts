@@ -1,5 +1,5 @@
 import { UserProfile, User, UserPasswordSubmitData } from '../models/UserModels';
-import { HttpTransport } from './utils/HttpTransoprt';
+import { HttpTransport } from './utils/HttpTransoprt/HttpTransoprt';
 
 const userApi = new HttpTransport('/user');
 

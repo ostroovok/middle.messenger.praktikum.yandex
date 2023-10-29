@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import ModalTemplate from './AddUserModal.hbs?raw';
 import { connect } from 'src/store/utils';
 import { requiredField } from 'src/shared/validation';

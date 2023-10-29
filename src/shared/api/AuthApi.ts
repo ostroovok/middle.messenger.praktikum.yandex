@@ -1,6 +1,6 @@
 import { SignupUserSubmitData, LoginSubmitData, SignupUserResponseData } from '../models/AuthModels';
 import { User } from '../models/UserModels';
-import { HttpTransport } from './utils/HttpTransoprt';
+import { HttpTransport } from './utils/HttpTransoprt/HttpTransoprt';
 
 const authApi = new HttpTransport('/auth');
 

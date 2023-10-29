@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as ErrorTemplate } from './Error.hbs?raw';
 import { Router } from 'src/core/Router/Router';
 

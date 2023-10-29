@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as ContactCardTemplate } from './ContactCard.hbs?raw';
 import { ChatType, GetChatUsersResponse } from 'src/shared/models/ChatModels';
 import { getChatUsers } from 'src/services/ChatsService';

@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as ModalBackgroundTemplate } from './ModalBackground.hbs?raw';
 
 type ModalBackgroundProps = {
