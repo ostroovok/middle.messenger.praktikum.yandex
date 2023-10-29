@@ -12,7 +12,7 @@ describe('Block tests', () => {
 			}
 
 			protected render() {
-				return `<div id="${TEST_ID}">{{test}}</div>`;
+				return `<div><div id="${TEST_ID}">{{test}}</div></div>`;
 			}
 		}
 
@@ -25,7 +25,7 @@ describe('Block tests', () => {
 			const component = getComponent({ test: testData });
 			const componentContent = component.getContent();
 			const rerenderedComponent = componentContent?.querySelector(`#${TEST_ID}`);
-			expect(rerenderedComponent?.innerHTML).to.eq(testData);
+			expect(rerenderedComponent?.textContent).to.eq(testData);
 		});
 		it('Block must set eventListeners', () => {
 			const componentEvent = Sinon.stub();
@@ -46,7 +46,7 @@ describe('Block tests', () => {
 			expect(element).to.not.null;
 		});
 		it('Block must get content by call of getContent func', () => {
-			const component = getComponent();
+			const component = getComponent({ test: TEST_ID });
 			const componentContent = component.getContent();
 			expect(componentContent?.innerHTML).to.not.eq('');
 		});
@@ -61,7 +61,7 @@ describe('Block tests', () => {
 			const rerenderedComponent = componentContent?.querySelector(`#${TEST_ID}`);
 			expect(rerenderedComponent?.innerHTML).to.not.eq(testData);
 		});
-        // TODO: Реализовать тесты 
+		// TODO: Реализовать тесты
 		it('Block must call didMount-func after mounted to DOM', () => {});
 		it('Block must call willUnmount-func before unmount from DOM', () => {});
 	});
@@ -78,7 +78,7 @@ describe('Block tests', () => {
 			const component = getComponent();
 			const componentContent = component.getContent();
 
-			component.show();
+			component.hide();
 			expect(componentContent?.style.display).to.eq('none');
 		});
 	});

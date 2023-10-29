@@ -184,6 +184,17 @@ class Block<T extends BlockProps = BlockProps> {
 	}
 
 	getContent() {
+		if(!this.element) {
+            this.render()
+        }
+		if (this.element?.parentNode?.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+			setTimeout(() => {
+				if (this.element?.parentNode?.nodeType !== Node.DOCUMENT_FRAGMENT_NODE) {
+					this.dispatchComponentDidMount();
+				}
+			}, 100);
+		}
+
 		return this.element;
 	}
 

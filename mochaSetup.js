@@ -11,6 +11,7 @@ const jsdom = new JSDOM(
 
 global.window = jsdom.window;
 global.document = jsdom.window.document;
+global.Node = jsdom.window.Node;
 
 // mocha
 global.describe = describe;

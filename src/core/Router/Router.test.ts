@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { Block } from 'src/core/Block';
 import { Router } from './Router';
 import Sinon from 'sinon';
-import { BlockProps } from '../Block/Block';
+import Block, { BlockProps } from '../Block/Block';
 
 describe('Router tests', () => {
-	const HOST = 'http://localhost:3000';
+	const HOST = 'https://localhost:3000';
 	const TEST_ROUTER_PATH = 'testURL';
 
 	const getComponent = () => {
