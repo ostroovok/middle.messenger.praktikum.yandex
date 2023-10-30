@@ -34,8 +34,9 @@ describe('Block tests', () => {
 					click: componentEvent,
 				},
 			});
-			component.getContent()?.click();
-			expect(componentEvent.called).to.be.true;
+			const event = new MouseEvent('click');
+			component.getContent()?.dispatchEvent(event);
+			expect(componentEvent.calledOnce).to.be.true;
 		});
 	});
 
