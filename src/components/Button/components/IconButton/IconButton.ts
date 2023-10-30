@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as IconButtonTemplate } from './IconButton.hbs?raw';
 
 type IconButtonProps = {

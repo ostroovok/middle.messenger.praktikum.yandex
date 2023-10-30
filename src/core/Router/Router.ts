@@ -1,5 +1,5 @@
-import { Routes } from 'src/shared/navigation/routes';
-import Block, { BlockProps } from '../Block';
+import { Routes } from '../../shared/navigation/routes';
+import Block, { BlockProps } from '../Block/Block';
 import { Route } from './Route';
 import { checkPermissionsToRedirect } from './utils/checkPermissionsToRedirect';
 

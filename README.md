@@ -39,6 +39,21 @@ npm run start
 npm run preview
 ```
 
+— проверка код-стайла:
+```
+npm run lint
+```
+
+— тесты:
+```
+npm run test
+```
+
+— тесты и проверка код-стайла:
+```
+npm run precommit
+``` 
+
 
 ## Навигация:
 1. Страница "Вход":

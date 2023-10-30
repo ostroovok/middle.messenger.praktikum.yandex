@@ -1,6 +1,6 @@
 import { AuthApi } from '../../../shared/api/AuthApi';
-import { Routes } from 'src/shared/navigation/routes';
-import { User } from 'src/shared/models/UserModels';
+import { Routes } from '../../../shared/navigation/routes';
+import { User } from '../../../shared/models/UserModels';
 
 const authApi = new AuthApi();
 

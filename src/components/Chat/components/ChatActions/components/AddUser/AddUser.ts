@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as AddUserTemplate } from './AddUser.hbs?raw';
 
 export class AddUser extends Block {

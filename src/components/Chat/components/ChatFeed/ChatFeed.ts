@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as ChatFeedTemplate } from './ChatFeed.hbs?raw';
 import { connect } from 'src/store/utils';
 

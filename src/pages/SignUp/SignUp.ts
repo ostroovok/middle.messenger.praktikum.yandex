@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import {RefsType } from 'src/shared/types';
 import { profileValidationScheme, secondPasswordValidation } from 'src/shared/validation';
 import { default as SignUpTemplate } from './SignUp.hbs?raw';

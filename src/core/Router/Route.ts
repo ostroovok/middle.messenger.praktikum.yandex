@@ -1,4 +1,4 @@
-import Block, { BlockProps } from '../Block';
+import Block, { BlockProps } from '../Block/Block';
 
 const render = (query: string, component: Block) => {
 	//const root = document.querySelector(query);

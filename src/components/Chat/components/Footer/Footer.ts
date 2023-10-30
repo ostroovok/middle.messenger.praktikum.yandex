@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { default as FooterTemplate } from './Footer.hbs?raw';
 import { InputField } from 'src/components';
 import { RefsType } from 'src/shared/types';

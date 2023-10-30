@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { noop } from 'src/shared/utils/noop';
 import { default as InputTemplate } from './Input.hbs?raw';
 

@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import ContactListTemplate from './ContactList.hbs?raw';
 import { ChatType, ChatsList } from 'src/shared/models/ChatModels';
 import { connect } from 'src/store/utils';

@@ -14,7 +14,7 @@ import {
 	GetCommonChatRequest,
 	GetCommonChatResponseData,
 } from '../models/ChatModels';
-import { HttpTransport } from './utils/HttpTransoprt';
+import { HttpTransport } from './utils/HttpTransoprt/HttpTransoprt';
 
 const api = new HttpTransport('/chats');
 

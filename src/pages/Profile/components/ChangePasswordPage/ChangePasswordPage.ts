@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { RefsType } from 'src/shared/types';
 import { profileValidationScheme } from 'src/shared/validation';
 import { default as ChangePasswordPageTemplate } from './ChangePasswordPage.hbs?raw';

@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { connect } from 'src/store/utils';
 import { default as ChangeChatAvatarModalTemplate } from './ChangeChatAvatarModal.hbs?raw';
 import { changeChatAvatar, getChats } from 'src/services/ChatsService';

@@ -1,4 +1,4 @@
-import Block from 'src/core/Block';
+import Block from 'src/core/Block/Block';
 import { RefsType } from 'src/shared/types';
 import { default as LoginTemplate } from './Login.hbs?raw';
 import { Router } from 'src/core/Router/Router';
